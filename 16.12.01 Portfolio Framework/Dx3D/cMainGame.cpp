@@ -14,6 +14,7 @@ cMainGame::cMainGame(void)
 	, m_pMesh(NULL)
 	, m_pMapMesh(NULL)
 	, m_Terrrain(NULL)
+	, m_FrustumClling(NULL)
 	, m_fSpeed(100.f)
 	, m_fSpeedWalk(1.f / 5.7f)
 	, m_dwCurrentTrack(0)
@@ -24,6 +25,7 @@ cMainGame::cMainGame(void)
 	, m(0)
 	, a(false)
 	, TestImage(NULL)
+	, m_pSky(NULL)
 {
 	D3DXMatrixIdentity(&mat);
 	imagePt = cUt::PointMake(0, 0);
@@ -31,7 +33,6 @@ cMainGame::cMainGame(void)
 
 cMainGame::~cMainGame(void)
 {
-
 	SAFE_DELETE(m_pCamera);
 	SAFE_DELETE(m_pRoot);
 	SAFE_DELETE(m_pGrid);
@@ -44,6 +45,10 @@ cMainGame::~cMainGame(void)
 	SAFE_RELEASE(m_pMap);
 	SAFE_RELEASE(m_pMesh);
 	SAFE_RELEASE(m_pMapMesh);
+
+	/* --------- */
+	SAFE_RELEASE(m_pSky);
+	/* --------- */
 
 	for each (auto p in m_vecMtlTex)
 	{
@@ -64,7 +69,6 @@ cMainGame::~cMainGame(void)
 
 void cMainGame::Setup()
 {
-
 	D3DXCreateSphere(g_pD3DDevice, RADIUS, 20, 20, &m_pMesh, NULL);
 
 
@@ -73,11 +77,11 @@ void cMainGame::Setup()
 	D3DXMatrixRotationX(&matR, -D3DX_PI / 2.0f);
 	mat = matS * matR;
 
-	cObjMap* pObjMap = new cObjMap;
-	pObjMap->Load("./obj/Map.obj", "./obj/map_surface.obj", &mat);
-
-	cObjLoader objloader;
-	m_pMapMesh = objloader.Load("obj/Map.obj", m_vecMtlTex, &mat);
+	//cObjMap* pObjMap = new cObjMap;
+	//pObjMap->Load("./obj/Map.obj", "./obj/map_surface.obj", &mat);
+	//
+	//cObjLoader objloader;
+	//m_pMapMesh = objloader.Load("obj/Map.obj", m_vecMtlTex, &mat);
 
 	m_pCamera = new cCamera;
 	m_pCamera->Setup();
@@ -111,10 +115,10 @@ void cMainGame::Setup()
 	_Animation = new cAnimation("./Zealot/", "alice1.X");
 
 	SetLight();
-//	_Animation->SetAnimationIndex(4);
+	//_Animation->SetAnimationIndex(4);
 	_Animation->SetPosition(D3DXVECTOR3(5, 0, 5));
-	TestImage = new Image;
-	TestImage->Setup("인상이가 좋아하는 설현.png", 0, 0, 0);
+	//TestImage = new Image;
+	//TestImage->Setup("인상이가 좋아하는 설현.png", 0, 0, 0);
 
 
 
@@ -125,7 +129,11 @@ void cMainGame::Setup()
 	ZeroMemory(&m_stMtlPicked, sizeof(D3DMATERIAL9));
 	m_stMtlPicked.Ambient = m_stMtlPicked.Diffuse = m_stMtlPicked.Specular = D3DXCOLOR(0.8f, 0.0f, 0.0f, 1.0f);
 
-
+	/* --------- */
+	m_pSky = new cSky;
+	m_pSky->Init();
+	
+	/* --------- */
 }
 
 void cMainGame::Update()
@@ -178,7 +186,16 @@ void cMainGame::Render()
 		1.0f, 0);
 
 	g_pD3DDevice->BeginScene();
-	
+
+	/* ---------- */
+	if (m_pSky)
+	{
+		m_pSky->Render(m_pController->GetWorldTM(), m_pCamera->GetViewProjMatrix());
+	}
+
+	/* ---------- */
+
+
 	// 그림을 그린다.
 	m_pGrid->Render();
 	_Animation->UpdateAndRender(m_pController->GetWorldTM());
@@ -204,10 +221,12 @@ void cMainGame::Render()
 		POINT ptMt = cUt::GetMousePos();
 		imagePt = ptMt;
 	}
-	D3DXMatrixTranslation(&matWorld, imagePt.x, imagePt.y, 0);
+	D3DXMatrixTranslation(&matWorld, (float)imagePt.x, (float)imagePt.y, 0.f);
 
 	if (TestImage)
 		TestImage->Render(&matWorld);
+
+	
 
 	g_pD3DDevice->EndScene();
 

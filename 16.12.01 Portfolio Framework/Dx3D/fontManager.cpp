@@ -17,8 +17,8 @@ void fontManager::Setup()
 	//폰트 객체 만든다
 	D3DXCreateFont(
 		g_pD3DDevice,			//디바이스
-		30.f,				//폰트의 높이
-		0.f,				//폰트의 폭(이 값이 0이면 앞에서 설정한 폰트 높이에 비례)
+		(INT)30,				//폰트의 높이
+		(UINT)0.f,				//폰트의 폭(이 값이 0이면 앞에서 설정한 폰트 높이에 비례)
 		FW_BOLD,			//폰트의 두께 설정(FW_BOLD 폰트의 BOLD 스타일 크기를 갖는다)
 		1,					//밉맵(그냥 1)
 		FALSE,				//이텔릭 여부
@@ -51,8 +51,8 @@ void fontManager::addStyle(std::string style, std::string fontName, float fontSi
 	LPD3DXFONT newFont;
 	D3DXCreateFont(
 		g_pD3DDevice,						//디바이스
-		fontSize,						//폰트의 높이
-		0.f,							//폰트의 폭(이 값이 0이면 앞에서 설정한 폰트 높이에 비례)
+		(INT)fontSize,						//폰트의 높이
+		(UINT)0.f,							//폰트의 폭(이 값이 0이면 앞에서 설정한 폰트 높이에 비례)
 		FW_BOLD,						//폰트의 두께 설정(FW_BOLD 폰트의 BOLD 스타일 크기를 갖는다)
 		1,								//밉맵(그냥 1)
 		FALSE,							//이텔릭 여부

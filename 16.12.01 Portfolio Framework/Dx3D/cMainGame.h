@@ -26,7 +26,10 @@ private:
 
 	FrustumClling*				m_FrustumClling;
 	cHeightMap*					m_HeightMap;
-
+	
+	/* ------------ */
+	cSky* m_pSky;
+	/* ------------ */
 
 	HWND _btnUp;
 	HWND _btnDown;

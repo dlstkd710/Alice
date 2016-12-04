@@ -28,7 +28,7 @@ void cActionSeq::AddAction( cAction* pAction )
 void cActionSeq::Start()
 {
 	m_nCurrIndex = 0;
-	if(m_nCurrIndex < m_vecAction.size())
+	if((size_t)m_nCurrIndex < m_vecAction.size())
 	{
 		m_vecAction[m_nCurrIndex]->Start();
 	}
@@ -36,7 +36,7 @@ void cActionSeq::Start()
 
 void cActionSeq::Update()
 {
-	if (m_nCurrIndex < m_vecAction.size())
+	if ((size_t)m_nCurrIndex < m_vecAction.size())
 	{
 		m_vecAction[m_nCurrIndex]->Update();
 	}
@@ -45,7 +45,7 @@ void cActionSeq::Update()
 void cActionSeq::OnActionFinish( cAction* pAction )
 {
 	++m_nCurrIndex;
-	if (m_nCurrIndex < m_vecAction.size())
+	if ((size_t)m_nCurrIndex < m_vecAction.size())
 	{
 		m_vecAction[m_nCurrIndex]->Start();
 	}

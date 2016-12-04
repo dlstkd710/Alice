@@ -57,14 +57,14 @@ void cObjMap::Load( char* szMap, char* szSurface, D3DXMATRIXA16* pmat /*= NULL*/
 			else
 			{
 				float x, y, z;
-				sscanf(szBuf, "%*s %f %f %f", &x, &y, &z);
+				sscanf_s(szBuf, "%*s %f %f %f", &x, &y, &z);
 				vecV.push_back(D3DXVECTOR3(x, y, z));
 			}
 		}
 		else if(szBuf[0] == 'f')
 		{
 			int aIndex[3];
-			sscanf(szBuf, "%*s %d/%*d/%*d %d/%*d/%*d %d/%*d/%*d",
+			sscanf_s(szBuf, "%*s %d/%*d/%*d %d/%*d/%*d %d/%*d/%*d",
 				&aIndex[0], &aIndex[1], &aIndex[2]);
 
 			for (int i = 0; i < 3; ++i)

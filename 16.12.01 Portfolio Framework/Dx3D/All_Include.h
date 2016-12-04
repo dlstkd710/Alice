@@ -18,4 +18,4 @@
 #include "FrustumClling.h"
 #include "Image.h"
 #include "cHeightMap.h"
-
+#include "cSky.h"

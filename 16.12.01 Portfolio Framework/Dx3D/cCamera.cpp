@@ -12,6 +12,7 @@ cCamera::cCamera(void)
 	, m_fDistance(60.0f)
 	, upDown(0.0f)
 {
+	D3DXMatrixIdentity(&m_matViewProj);
 }
 
 cCamera::~cCamera(void)
@@ -27,8 +28,6 @@ void cCamera::Setup()
 	
 	D3DXMatrixPerspectiveFovLH(&m_matProj, D3DX_PI / 4.0f, rc.right / (float)rc.bottom, 1, 1000);
 	g_pD3DDevice->SetTransform(D3DTS_PROJECTION, &m_matProj);
-
-
 }
 
 void cCamera::Update(D3DXVECTOR3* pTarget)
@@ -71,9 +70,8 @@ D3DXMATRIXA16* cCamera::GetProjMatrix()
 }
 D3DXMATRIXA16* cCamera::GetViewProjMatrix()
 {
-	D3DXMATRIXA16 ang;
-	ang = m_matView * m_matProj;
-	return &ang;
+	m_matViewProj = m_matView * m_matProj;
+	return &m_matViewProj;
 }
 
 void cCamera::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )

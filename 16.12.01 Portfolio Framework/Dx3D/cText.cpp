@@ -33,7 +33,7 @@ void cText::Setup()
 	lf.lfUnderline = false;
 	lf.lfStrikeOut = false; 
 	lf.lfCharSet = DEFAULT_CHARSET; 
-	strcpy(lf.lfFaceName, "Times New Roman"); // 글꼴 스타일 // 다시 이전의 글꼴율 선택하고 자원을 해제한다. 
+	strcpy_s(lf.lfFaceName, 32,"Times New Roman"); // 글꼴 스타일 // 다시 이전의 글꼴율 선택하고 자원을 해제한다. 
 	
 	Text = 0;
 
@@ -95,7 +95,7 @@ void cText::fpsSetup()
 	lf.lfClipPrecision = 0;
 	lf.lfQuality = 0;
 	lf.lfPitchAndFamily = 0;
-	strcpy(lf.lfFaceName, "Times New Roman"); // font style
+	strcpy_s(lf.lfFaceName, 32, "Times New Roman"); // font style
 
 	D3DXCreateFont(g_pD3DDevice, 20, 0, FW_BOLD, 0, FALSE, DEFAULT_CHARSET,
 		OUT_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE,
@@ -114,7 +114,7 @@ void cText::fpsUpdate(float timeDelta , float FPS1)
 	{
 		FPS = (float)FrameCnt / TimeElapsed;
 
-		sprintf(FPSString, " FPS : %f , Y : %f", FPS , FPS1);
+		sprintf_s(FPSString, sizeof(FPSString), " FPS : %.1f", FPS);
 		FPSString[19] = '\0'; // mark end of string
 
 		TimeElapsed = 0.0f;

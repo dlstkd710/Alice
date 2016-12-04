@@ -19,6 +19,7 @@ public:
 	D3DXVECTOR3				m_vEye;
 	D3DXMATRIXA16			m_matView;
 	D3DXMATRIXA16			m_matProj;
+	D3DXMATRIXA16			m_matViewProj;
 
 	cCamera(void);
 	~cCamera(void);

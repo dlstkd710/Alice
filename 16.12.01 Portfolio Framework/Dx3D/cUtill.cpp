@@ -289,7 +289,7 @@ namespace cUt {
 		}
 
 		//최종 적으로 Normalvector 정규화한다.
-		for (DWORD i = 0; i < verticesNum; i++)
+		for (DWORD i = 0; i < (DWORD)verticesNum; i++)
 		{
 			D3DXVec3Normalize(&pNorams[i], &pNorams[i]);
 		}
@@ -401,7 +401,7 @@ namespace cUt {
 
 
 		//Binormal Tangent 노말에 직교화
-		for (int i = 0; i < NumVertices; i++) {
+		for (DWORD i = 0; i < NumVertices; i++) {
 
 			D3DXVECTOR3 n = pNormals[i];
 

@@ -73,6 +73,12 @@
     <Filter Include="소스 파일\UI\image">
       <UniqueIdentifier>{99021247-35bb-461f-9f1a-35420d31963d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\JEONGJEHO">
+      <UniqueIdentifier>{c0aa7039-750a-4084-aba0-66dda257469d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\JEONGJEHO\0. FX Loader">
+      <UniqueIdentifier>{ab178e95-b3d1-48cd-bd57-95712fc20863}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -234,6 +240,12 @@
     <ClInclude Include="cUIButton.h">
       <Filter>소스 파일\UI</Filter>
     </ClInclude>
+    <ClInclude Include="cSky.h">
+      <Filter>소스 파일\JEONGJEHO</Filter>
+    </ClInclude>
+    <ClInclude Include="cFxLoader.h">
+      <Filter>소스 파일\JEONGJEHO\0. FX Loader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -376,6 +388,12 @@
     </ClCompile>
     <ClCompile Include="cUIButton.cpp">
       <Filter>소스 파일\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="cSky.cpp">
+      <Filter>소스 파일\JEONGJEHO</Filter>
+    </ClCompile>
+    <ClCompile Include="cFxLoader.cpp">
+      <Filter>소스 파일\JEONGJEHO\0. FX Loader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -38,7 +38,7 @@ void cFrustum::Update()
 
 	vector<D3DXVECTOR3>		vecV;
 	vecV.resize(8);
-	for (int i = 0; i < m_vecV.size(); i++)
+	for (size_t i = 0; i < m_vecV.size(); i++)
 	{
 		D3DXVec3Unproject(
 			&vecV[i],
@@ -60,7 +60,7 @@ void cFrustum::Update()
 
 bool cFrustum::IsinFrustum(cBoundingSphere* pSphere)
 {
-	for (int i = 0; i < m_vecPlane.size(); i++)
+	for (size_t i = 0; i < m_vecPlane.size(); i++)
 		if (D3DXPlaneDotCoord(&m_vecPlane[i], &pSphere->GetCenter()) > pSphere->GetRadius())
 			return false;
 

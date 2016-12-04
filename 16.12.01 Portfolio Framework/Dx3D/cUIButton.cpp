@@ -33,8 +33,8 @@ void cUIButton::SetTexture(char* szNor, char* szOvr, char* szSel)
 	m_aTexture[E_STATE_SELECTED] = g_pTextureManager->GetTexture(szSel, &stImageInfo);
 	SAFE_ADD_REF(m_aTexture[E_STATE_SELECTED]);
 
-	m_stSize.fWidth = stImageInfo.Width;
-	m_stSize.fHeight = stImageInfo.Height;
+	m_stSize.fWidth		= (float)stImageInfo.Width;
+	m_stSize.fHeight	= (float)stImageInfo.Height;
 }
 
 void cUIButton::Update()
@@ -47,10 +47,10 @@ void cUIButton::Update()
 
 	RECT rc;
 	SetRect(&rc,
-		m_matWorld._41,
-		m_matWorld._42,
-		m_matWorld._41 + m_stSize.fWidth,
-		m_matWorld._42 + m_stSize.fHeight);
+		(int)m_matWorld._41,
+		(int)m_matWorld._42,
+		(int)m_matWorld._41 + (int)m_stSize.fWidth,
+		(int)m_matWorld._42 + (int)m_stSize.fHeight);
 
 	bool isLButtonDown = (bool)(GetKeyState(VK_LBUTTON) & 0x8000);
 
@@ -87,7 +87,7 @@ void cUIButton::Update()
 void cUIButton::Render(LPD3DXSPRITE pSprite)
 {
 	RECT rc;
-	SetRect(&rc, 0, 0, m_stSize.fWidth, m_stSize.fHeight);
+	SetRect(&rc, 0, 0, (int)m_stSize.fWidth, (int)m_stSize.fHeight);
 	pSprite->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_SORT_TEXTURE);
 	pSprite->SetTransform(&m_matWorld);
 	pSprite->Draw(m_aTexture[m_eButtonState],

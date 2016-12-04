@@ -72,9 +72,9 @@ void Terrain::Load(char * szFilename, char * szTexture, int nBytesPerPixel)
 		{
 			int nIndex = z * nRow + x;
 			ST_PNT_VERTEX v;
-			v.p = D3DXVECTOR3(x, vecData[nIndex] / 10.f, z);
+			v.p = D3DXVECTOR3((float)x, (float)vecData[nIndex] / 10.f, (float)z);
 			v.n = D3DXVECTOR3(0, 1, 0);
-			v.t = D3DXVECTOR2(x / (float)nNumTile, z / (float)nNumTile);
+			v.t = D3DXVECTOR2((float)x / (float)nNumTile, (float)z / (float)nNumTile);
 
 			vecVertex.push_back(v);
 			m_vecVertex.push_back(v.p);
@@ -158,8 +158,8 @@ bool Terrain::GetHeight(IN float x, OUT float& y, IN float z)
 		return false;
 	}
 
-	int nX = x;
-	int nZ = z;
+	int nX = (int)x;
+	int nZ = (int)z;
 
 	float fDeltaX = x - nX;
 	float fDeltaZ = z - nZ;
@@ -204,10 +204,10 @@ float Terrain::GetHeight2(IN float x,IN float z)
 	float col = ::floorf(x);
 	float row = ::floorf(z);
 
-	float A = getHeightmapEntry(row,	col);
-	float B = getHeightmapEntry(row,	col + 1);
-	float C = getHeightmapEntry(row + 1,col);
-	float D = getHeightmapEntry(row + 1,col + 1);
+	float A = (float)getHeightmapEntry((int)row,		(int)col);
+	float B = (float)getHeightmapEntry((int)row,		(int)col + 1);
+	float C = (float)getHeightmapEntry((int)row + 1,	(int)col);
+	float D = (float)getHeightmapEntry((int)row + 1,	(int)col + 1);
 	float dx = x - col;
 	float dz = z - row;
 
