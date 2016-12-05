@@ -58,7 +58,7 @@ void UiMain::Setup()
 
 void UiMain::Update()
 {
-	if (g_pkeyManager->isOnceKeyDown(VK_SPACE) && Uisecne)
+	if (g_pkeyManager->isOnceKeyDown(VK_TAB) && Uisecne)
 	{
 		secne++;
 	}
