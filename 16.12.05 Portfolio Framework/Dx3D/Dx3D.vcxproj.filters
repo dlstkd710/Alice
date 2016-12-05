@@ -79,6 +79,9 @@
     <Filter Include="소스 파일\JEONGJEHO\0. FX Loader">
       <UniqueIdentifier>{ab178e95-b3d1-48cd-bd57-95712fc20863}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\몬스터">
+      <UniqueIdentifier>{e6b5ab75-04c5-4d02-a038-75c2123b9c72}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -255,6 +258,15 @@
     <ClInclude Include="cObjectXfile.h">
       <Filter>소스 파일\Xfile 로더</Filter>
     </ClInclude>
+    <ClInclude Include="cMonsterManager.h">
+      <Filter>소스 파일\몬스터</Filter>
+    </ClInclude>
+    <ClInclude Include="cMonster.h">
+      <Filter>소스 파일\몬스터</Filter>
+    </ClInclude>
+    <ClInclude Include="cM_Nightmare.h">
+      <Filter>소스 파일\몬스터</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -329,20 +341,8 @@
     <ClCompile Include="cUtill.cpp">
       <Filter>소스 파일\Utill</Filter>
     </ClCompile>
-    <ClCompile Include="All_Include.cpp">
-      <Filter>헤더 파일\잡코드모음</Filter>
-    </ClCompile>
     <ClCompile Include="cGameObject.cpp">
       <Filter>소스 파일\obj 파싱</Filter>
-    </ClCompile>
-    <ClCompile Include="All_struct.cpp">
-      <Filter>헤더 파일\잡코드모음</Filter>
-    </ClCompile>
-    <ClCompile Include="All_Manager.cpp">
-      <Filter>헤더 파일\잡코드모음</Filter>
-    </ClCompile>
-    <ClCompile Include="All_Macro.cpp">
-      <Filter>헤더 파일\잡코드모음</Filter>
     </ClCompile>
     <ClCompile Include="Dx3D.cpp">
       <Filter>소스 파일\Maingame,D3D</Filter>
@@ -412,6 +412,15 @@
     </ClCompile>
     <ClCompile Include="cObjectXfile.cpp">
       <Filter>소스 파일\Xfile 로더</Filter>
+    </ClCompile>
+    <ClCompile Include="cMonsterManager.cpp">
+      <Filter>소스 파일\몬스터</Filter>
+    </ClCompile>
+    <ClCompile Include="cMonster.cpp">
+      <Filter>소스 파일\몬스터</Filter>
+    </ClCompile>
+    <ClCompile Include="cM_Nightmare.cpp">
+      <Filter>소스 파일\몬스터</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

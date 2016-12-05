@@ -16,9 +16,9 @@ cActionSeq::~cActionSeq(void)
 	}
 }
 
-void cActionSeq::AddAction( cAction* pAction )
+void cActionSeq::AddAction(cAction* pAction)
 {
-	if(pAction)
+	if (pAction)
 	{
 		SAFE_ADD_REF(pAction);
 		m_vecAction.push_back(pAction);
@@ -28,7 +28,7 @@ void cActionSeq::AddAction( cAction* pAction )
 void cActionSeq::Start()
 {
 	m_nCurrIndex = 0;
-	if((size_t)m_nCurrIndex < m_vecAction.size())
+	if (m_nCurrIndex < m_vecAction.size())
 	{
 		m_vecAction[m_nCurrIndex]->Start();
 	}
@@ -36,16 +36,17 @@ void cActionSeq::Start()
 
 void cActionSeq::Update()
 {
-	if ((size_t)m_nCurrIndex < m_vecAction.size())
+	if (m_nCurrIndex < m_vecAction.size())
 	{
 		m_vecAction[m_nCurrIndex]->Update();
+		m_vecAction[m_nCurrIndex]->MtUpdate();
 	}
 }
 
-void cActionSeq::OnActionFinish( cAction* pAction )
+void cActionSeq::OnActionFinish(cAction* pAction)
 {
 	++m_nCurrIndex;
-	if ((size_t)m_nCurrIndex < m_vecAction.size())
+	if (m_nCurrIndex < m_vecAction.size())
 	{
 		m_vecAction[m_nCurrIndex]->Start();
 	}

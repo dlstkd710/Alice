@@ -22,3 +22,8 @@ void cAction::Update()
 {
 	m_fPassedActionTime += g_pTimeManager->GetDeltaTime();
 }
+
+void cAction::MtUpdate()
+{
+	m_fPassedActionTime += g_pTimeManager->GetDeltaTime();
+}

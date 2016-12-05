@@ -109,7 +109,10 @@
     <ClInclude Include="cGrid.h" />
     <ClInclude Include="cGroup.h" />
     <ClInclude Include="cMainGame.h" />
+    <ClInclude Include="cMonster.h" />
+    <ClInclude Include="cMonsterManager.h" />
     <ClInclude Include="cMtlTex.h" />
+    <ClInclude Include="cM_Nightmare.h" />
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cObjectAllocate.h" />
     <ClInclude Include="cObjectXfile.h" />
@@ -141,10 +144,6 @@
     <ClInclude Include="UiMain.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="All_Include.cpp" />
-    <ClCompile Include="All_Macro.cpp" />
-    <ClCompile Include="All_Manager.cpp" />
-    <ClCompile Include="All_struct.cpp" />
     <ClCompile Include="cAction.cpp" />
     <ClCompile Include="cActionMove.cpp" />
     <ClCompile Include="cActionRepeat.cpp" />
@@ -165,7 +164,10 @@
     <ClCompile Include="cGrid.cpp" />
     <ClCompile Include="cGroup.cpp" />
     <ClCompile Include="cMainGame.cpp" />
+    <ClCompile Include="cMonster.cpp" />
+    <ClCompile Include="cMonsterManager.cpp" />
     <ClCompile Include="cMtlTex.cpp" />
+    <ClCompile Include="cM_Nightmare.cpp" />
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cObjectAllocate.cpp" />
     <ClCompile Include="cObjectXfile.cpp" />

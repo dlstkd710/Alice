@@ -21,13 +21,6 @@ typedef struct tagRay {
 
 namespace cUt
 {
-	extern DWORD MaxAnisotropic;			//이방성 필터링 최대 단계
-
-	extern LPDIRECT3DDEVICE9 Device;		//전역 Device
-
-	HRESULT CreateDevice();					//디바이스생성
-	void ReleaseDevice();					//디바이스해체
-
 	POINT GetMousePos();
 	void SetMousePos(int x, int y);
 
@@ -56,17 +49,6 @@ namespace cUt
 		int verticesNum,				//정점 갯수
 		const DWORD* pIndices,			//인덱스 배열포인터 ( 일단 인덱스는 DWORD 로 대동단결 )
 		int indicesNum					//인덱스 배열포인터 갯수
-	);
-
-	void ComputeTangentAngBinormal(
-		D3DXVECTOR3* outTangets,			//결과 Tangent 배열
-		D3DXVECTOR3* outBinormals,			//결과 Binormal 배열
-		const D3DXVECTOR3* pPositions,		//정점 위치 배열
-		const D3DXVECTOR3* pNormals,		//정점 노말 배열
-		const D3DXVECTOR2* pUVs,			//정점의 UV 배열
-		const DWORD* pIndices,				//인덱스 배열
-		DWORD NumTris,						//삼각형 갯수		
-		DWORD NumVertices 					//정점 갯수
 	);
 
 	inline POINT PointMake(int x, int y)

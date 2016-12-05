@@ -11,3 +11,5 @@
 #include "fontManager.h"
 #include "cUIObject.h"
 #include "cFxLoader.h"
+
+#include "cBoundingSphere.h"

@@ -22,3 +22,7 @@
 #include "UiMain.h"
 #include "cObjectXfile.h"
 #include "cObjectAllocate.h"
+
+
+///////몬스터코드/////////
+#include "cMonsterManager.h"
