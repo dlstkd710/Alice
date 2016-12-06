@@ -39,7 +39,7 @@ void cActionSeq::Update()
 	if (m_nCurrIndex < m_vecAction.size())
 	{
 		m_vecAction[m_nCurrIndex]->Update();
-		m_vecAction[m_nCurrIndex]->MtUpdate();
+		//m_vecAction[m_nCurrIndex]->MtUpdate();
 	}
 }
 

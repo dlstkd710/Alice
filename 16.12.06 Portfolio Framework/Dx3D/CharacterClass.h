@@ -2,6 +2,7 @@
 
 class iMap;
 class cAnimation;
+class cMonsterManager;
 
 class CharacterClass
 {

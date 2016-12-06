@@ -25,6 +25,10 @@ private:
 	cObjectXfile* m_Object;
 	/* ------------ */
 
+	/* ------------ */
+	cMonsterManager*			m_pMonster;
+	/* ------------ */
+
 public:
 	cMainGame(void);
 	~cMainGame(void);

@@ -3,6 +3,7 @@
 #include "iMap.h"
 #include "cAnimation.h"
 #include "cAllocateHierarchy.h"
+#include "cMonsterManager.h"
 
 #define RADIUS 0.6f
 #define DELTA_Y 0.1f

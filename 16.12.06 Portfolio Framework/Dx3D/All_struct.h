@@ -69,3 +69,10 @@ struct ST_SIZE
 	ST_SIZE() : fWidth(0), fHeight(0) {}
 	ST_SIZE(float W, float H) : fWidth(W), fHeight(H) {}
 };
+
+enum MonsterNum
+{
+	NIGHTMARE,
+	FIREFLY,
+	BOSS
+};

@@ -9,6 +9,7 @@ cMainGame::cMainGame(void)
 	, m_pSky(NULL)
 	, m_pCharacter(NULL)
 	, m_pMap(NULL)
+	, m_pMonster(NULL)
 {
 }
 
@@ -25,7 +26,7 @@ cMainGame::~cMainGame(void)
 	/* --------- */
 	SAFE_RELEASE(m_pSky);
 	/* --------- */
-
+	SAFE_DELETE(m_pMonster);
 
 
 
@@ -76,6 +77,11 @@ void cMainGame::Setup()
 	//m_Object->SetPosition(D3DXVECTOR3(0, 0, 0));
 	//m_Object->SetScale(D3DXVECTOR3(0.01f, 0.01f, 0.01f));
 	/* --------- */
+
+	/* --------- */
+	m_pMonster = new cMonsterManager;
+	m_pMonster->init(NIGHTMARE, D3DXVECTOR3(-10, 0, -10));
+	m_pMonster->charLink(m_pCharacter);
 }
 
 void cMainGame::Update()
@@ -98,6 +104,13 @@ void cMainGame::Update()
 
 	/* --------- */
 	//m_Object->Update();
+	/* --------- */
+	/* --------- */
+	//if (g_pkeyManager->isToggleKey(VK_F1))
+	{
+		if (m_pMonster)
+			m_pMonster->update();
+	}
 	/* --------- */
 
 	g_pAutoReleasePool->Drain();
@@ -143,6 +156,10 @@ void cMainGame::Render()
 	m_UiMain->Render();
 	/* ---------- */
 
+	/* --------- */
+	if (m_pMonster)
+		m_pMonster->render();
+	/* --------- */
 	g_pD3DDevice->EndScene();
 
 	g_pD3DDevice->Present(NULL, NULL, NULL, NULL);
