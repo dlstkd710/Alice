@@ -13,4 +13,3 @@
 #include "cFxLoader.h"
 
 #include "cBoundingSphere.h"
-#include "cSkinnedMeshManager.h"

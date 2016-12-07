@@ -291,15 +291,6 @@
     <ClInclude Include="cObjectAllocate.h">
       <Filter>소스 파일\Xfile 로더\오브젝트</Filter>
     </ClInclude>
-    <ClInclude Include="cSkinnedMesh.h">
-      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
-    </ClInclude>
-    <ClInclude Include="cSkinnedMeshManager.h">
-      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
-    </ClInclude>
-    <ClInclude Include="cAllocate.h">
-      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -466,15 +457,6 @@
     </ClCompile>
     <ClCompile Include="cObjectAllocate.cpp">
       <Filter>소스 파일\Xfile 로더\오브젝트</Filter>
-    </ClCompile>
-    <ClCompile Include="cSkinnedMeshManager.cpp">
-      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
-    </ClCompile>
-    <ClCompile Include="cSkinnedMesh.cpp">
-      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
-    </ClCompile>
-    <ClCompile Include="cAllocate.cpp">
-      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
