@@ -23,6 +23,12 @@ HRESULT cMonster::Init(D3DXVECTOR3 m_MtPt)
 
 void cMonster::Update()
 {
+	cGameObject::Update();
+}
+
+void cMonster::Update(D3DXVECTOR3 _char_position)
+{
+	cGameObject::Update();
 }
 
 void cMonster::Render()

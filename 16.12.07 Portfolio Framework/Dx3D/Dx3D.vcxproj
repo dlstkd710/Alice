@@ -113,6 +113,7 @@
     <ClInclude Include="cMonster.h" />
     <ClInclude Include="cMonsterManager.h" />
     <ClInclude Include="cMtlTex.h" />
+    <ClInclude Include="cM_Fly.h" />
     <ClInclude Include="cM_Nightmare.h" />
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cObjectAllocate.h" />
@@ -170,6 +171,7 @@
     <ClCompile Include="cMonster.cpp" />
     <ClCompile Include="cMonsterManager.cpp" />
     <ClCompile Include="cMtlTex.cpp" />
+    <ClCompile Include="cM_Fly.cpp" />
     <ClCompile Include="cM_Nightmare.cpp" />
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cObjectAllocate.cpp" />

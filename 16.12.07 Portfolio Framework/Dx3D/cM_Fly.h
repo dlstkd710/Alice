@@ -1,6 +1,6 @@
 #pragma once
 #include "cMonster.h"
-class cM_Nightmare :public cMonster
+class cM_Fly :public cMonster
 {
 private:
 	cBoundingSphere *m_pSphere;
@@ -15,8 +15,8 @@ private:
 private:
 	D3DXVECTOR3 m_CharacterPos;
 public:
-	cM_Nightmare();
-	~cM_Nightmare();
+	cM_Fly();
+	~cM_Fly();
 
 	HRESULT Init();
 	HRESULT Init(D3DXVECTOR3 m_MtPt);

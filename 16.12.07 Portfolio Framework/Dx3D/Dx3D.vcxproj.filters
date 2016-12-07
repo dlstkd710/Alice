@@ -276,6 +276,9 @@
     <ClInclude Include="cTerrain.h">
       <Filter>소스 파일\큐브,그리드,피라미드</Filter>
     </ClInclude>
+    <ClInclude Include="cM_Fly.h">
+      <Filter>소스 파일\몬스터</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -436,6 +439,9 @@
     </ClCompile>
     <ClCompile Include="cTerrain.cpp">
       <Filter>소스 파일\큐브,그리드,피라미드</Filter>
+    </ClCompile>
+    <ClCompile Include="cM_Fly.cpp">
+      <Filter>소스 파일\몬스터</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

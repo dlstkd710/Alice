@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "cM_Nightmare.h"
+#include "cM_Fly.h"
 
-cM_Nightmare::cM_Nightmare()
+cM_Fly::cM_Fly()
 	: m_pSphere(NULL)
 	, player_check(false)
 	, m_Cube(NULL)
@@ -11,11 +11,11 @@ cM_Nightmare::cM_Nightmare()
 }
 
 
-cM_Nightmare::~cM_Nightmare()
+cM_Fly::~cM_Fly()
 {
 }
 
-HRESULT cM_Nightmare::Init()
+HRESULT cM_Fly::Init()
 {
 	SetPosition(D3DXVECTOR3(-10, 0, -10));
 	SetDirection(D3DXVECTOR3(0, 0, -1));
@@ -28,7 +28,7 @@ HRESULT cM_Nightmare::Init()
 	return S_OK;
 }
 
-HRESULT cM_Nightmare::Init(D3DXVECTOR3 m_MtPt)
+HRESULT cM_Fly::Init(D3DXVECTOR3 m_MtPt)
 {
 	m_vPosition = m_MtPt;
 	SetDirection(D3DXVECTOR3(0, 0, -1));
@@ -43,7 +43,7 @@ HRESULT cM_Nightmare::Init(D3DXVECTOR3 m_MtPt)
 	return S_OK;
 }
 
-void cM_Nightmare::Update()
+void cM_Fly::Update()
 {
 	cGameObject::Update();
 	///플레이어 찾기///////
@@ -75,11 +75,14 @@ void cM_Nightmare::Update()
 	m_Cube->Update(&m_matWorld);
 }
 
-void cM_Nightmare::Update(D3DXVECTOR3 _char_position)
+void cM_Fly::Update(D3DXVECTOR3 _char_position)
 {
 	cGameObject::Update();
 	if (_char_position)
+	{
 		m_CharacterPos = _char_position;
+		m_CharacterPos.y = _char_position.y + 15;
+	}
 	///플레이어 찾기///////
 	_count++;
 	if (_count % 30 == 0)
@@ -90,6 +93,7 @@ void cM_Nightmare::Update(D3DXVECTOR3 _char_position)
 			FindPlayer();
 			if (player_check)
 			{
+
 				float t = D3DXVec3Length(&(m_vPosition - m_NowGo));
 				cActionMove *_cActionMove = new cActionMove;
 				_cActionMove->SetFrom(m_vPosition);
@@ -97,7 +101,6 @@ void cM_Nightmare::Update(D3DXVECTOR3 _char_position)
 				_cActionMove->SetTo(m_NowGo);
 				_cActionMove->SetActionTime(t*0.1);
 				_cActionMove->SetTarget((this));
-
 				(this)->SetAction(_cActionMove);
 			}
 		}
@@ -113,33 +116,34 @@ void cM_Nightmare::Update(D3DXVECTOR3 _char_position)
 	m_Cube->Update(&m_matWorld);
 }
 
-void cM_Nightmare::Render()
+void cM_Fly::Render()
 {
 	m_pSphere->Render();
 	m_Cube->Render();
 }
 
-void cM_Nightmare::Destroy()
+void cM_Fly::Destroy()
 {
 
 }
 
-void cM_Nightmare::FindPlayer()
+void cM_Fly::FindPlayer()
 {
 	D3DXVECTOR3 _player_position = m_CharacterPos;
-	float Distance = D3DXVec3Length(&(m_vPosition - _player_position));
+	_player_position.y = m_CharacterPos.y;
+	float Distance = D3DXVec3Length(&(m_vPosition - m_CharacterPos));
 	if (Distance <= 100)
 	{
 		if (player_check)
 		{
 			m_PrevGo = m_NowGo;
-			m_NowGo = _player_position;
+			m_NowGo = m_CharacterPos;
 		}
 		else
 		{
 			player_check = true;
-			m_PrevGo = _player_position;
-			m_NowGo = _player_position;
+			m_PrevGo = m_CharacterPos;
+			m_NowGo = m_CharacterPos;
 		}
 	}
 	else
