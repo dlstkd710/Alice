@@ -15,7 +15,7 @@ extern HDC g_hdc;
 #define SAFE_RELEASE(p) if(p) { (p)->Release(); (p) = NULL; }
 #define SAFE_DELETE(p) if(p) { delete (p); (p) = NULL; }
 #define SAFE_DELETE_ARR(p) if (p) {delete [] p;}
-
+#define SAFE_DELETE_ARRAY(p) if(p) { delete [] (p); }
 
 #define IDLE_TRANSITION_TIME 0.125f
 #define MOVE_TRANSITION_TIME 0.25f

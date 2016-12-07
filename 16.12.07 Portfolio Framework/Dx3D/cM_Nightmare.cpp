@@ -88,7 +88,7 @@ void cM_Nightmare::Update(D3DXVECTOR3 _char_position)
 			if (player_check)
 			{
 				float Distance = D3DXVec3Length(&(m_PrevGo - m_NowGo));
-				if (Distance >= 5.0f)
+				if (fabsf(Distance) >= 5.0f)
 				{
 					float t = D3DXVec3Length(&(m_vPosition - m_NowGo));
 					cActionMove *_cActionMove = new cActionMove;

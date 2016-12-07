@@ -6,6 +6,7 @@ cObjectXfile::cObjectXfile(void)
 	: m_pRootBone(NULL)
 	, m_pAnimController(NULL)
 {
+
 }
 
 cObjectXfile::~cObjectXfile(void)

@@ -85,6 +85,15 @@
     <Filter Include="소스 파일\Character%28Alice%29\카메라">
       <UniqueIdentifier>{dbc57a9b-4c70-443b-954d-5c1687fda5a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Xfile 로더\캐릭터">
+      <UniqueIdentifier>{7079b271-3ead-4110-ae04-4654600ebdbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Xfile 로더\오브젝트">
+      <UniqueIdentifier>{924b47d2-0403-44e8-972d-8326cf345467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Xfile 로더\몬스터">
+      <UniqueIdentifier>{dade0a5f-4601-420f-89a8-d02e9811d00d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -104,15 +113,6 @@
     </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="cAllocateHierarchy.h">
-      <Filter>소스 파일\Xfile 로더</Filter>
-    </ClInclude>
-    <ClInclude Include="cAnimation.h">
-      <Filter>소스 파일\Xfile 로더</Filter>
-    </ClInclude>
-    <ClInclude Include="cAnimation_M.h">
-      <Filter>소스 파일\Xfile 로더</Filter>
     </ClInclude>
     <ClInclude Include="Terrain.h">
       <Filter>헤더 파일</Filter>
@@ -252,12 +252,6 @@
     <ClInclude Include="UiMain.h">
       <Filter>소스 파일\UI</Filter>
     </ClInclude>
-    <ClInclude Include="cObjectAllocate.h">
-      <Filter>소스 파일\Xfile 로더</Filter>
-    </ClInclude>
-    <ClInclude Include="cObjectXfile.h">
-      <Filter>소스 파일\Xfile 로더</Filter>
-    </ClInclude>
     <ClInclude Include="cMonsterManager.h">
       <Filter>소스 파일\몬스터</Filter>
     </ClInclude>
@@ -282,19 +276,34 @@
     <ClInclude Include="cOBB.h">
       <Filter>소스 파일\Bounding</Filter>
     </ClInclude>
+    <ClInclude Include="cAnimation_M.h">
+      <Filter>소스 파일\Xfile 로더\캐릭터</Filter>
+    </ClInclude>
+    <ClInclude Include="cAnimation.h">
+      <Filter>소스 파일\Xfile 로더\캐릭터</Filter>
+    </ClInclude>
+    <ClInclude Include="cAllocateHierarchy.h">
+      <Filter>소스 파일\Xfile 로더\캐릭터</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectXfile.h">
+      <Filter>소스 파일\Xfile 로더\오브젝트</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectAllocate.h">
+      <Filter>소스 파일\Xfile 로더\오브젝트</Filter>
+    </ClInclude>
+    <ClInclude Include="cSkinnedMesh.h">
+      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
+    </ClInclude>
+    <ClInclude Include="cSkinnedMeshManager.h">
+      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
+    </ClInclude>
+    <ClInclude Include="cAllocate.h">
+      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="cAllocateHierarchy.cpp">
-      <Filter>소스 파일\Xfile 로더</Filter>
-    </ClCompile>
-    <ClCompile Include="cAnimation.cpp">
-      <Filter>소스 파일\Xfile 로더</Filter>
-    </ClCompile>
-    <ClCompile Include="cAnimation_M.cpp">
-      <Filter>소스 파일\Xfile 로더</Filter>
     </ClCompile>
     <ClCompile Include="cActionSeq.cpp">
       <Filter>소스 파일\Action폴더</Filter>
@@ -416,12 +425,6 @@
     <ClCompile Include="UiMain.cpp">
       <Filter>소스 파일\UI</Filter>
     </ClCompile>
-    <ClCompile Include="cObjectAllocate.cpp">
-      <Filter>소스 파일\Xfile 로더</Filter>
-    </ClCompile>
-    <ClCompile Include="cObjectXfile.cpp">
-      <Filter>소스 파일\Xfile 로더</Filter>
-    </ClCompile>
     <ClCompile Include="cMonsterManager.cpp">
       <Filter>소스 파일\몬스터</Filter>
     </ClCompile>
@@ -448,6 +451,30 @@
     </ClCompile>
     <ClCompile Include="cOBB.cpp">
       <Filter>소스 파일\Bounding</Filter>
+    </ClCompile>
+    <ClCompile Include="cAnimation_M.cpp">
+      <Filter>소스 파일\Xfile 로더\캐릭터</Filter>
+    </ClCompile>
+    <ClCompile Include="cAnimation.cpp">
+      <Filter>소스 파일\Xfile 로더\캐릭터</Filter>
+    </ClCompile>
+    <ClCompile Include="cAllocateHierarchy.cpp">
+      <Filter>소스 파일\Xfile 로더\캐릭터</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectXfile.cpp">
+      <Filter>소스 파일\Xfile 로더\오브젝트</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectAllocate.cpp">
+      <Filter>소스 파일\Xfile 로더\오브젝트</Filter>
+    </ClCompile>
+    <ClCompile Include="cSkinnedMeshManager.cpp">
+      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
+    </ClCompile>
+    <ClCompile Include="cSkinnedMesh.cpp">
+      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
+    </ClCompile>
+    <ClCompile Include="cAllocate.cpp">
+      <Filter>소스 파일\Xfile 로더\몬스터</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
