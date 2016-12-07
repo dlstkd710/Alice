@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 #include "cOBB.h"
-#include "cObjectXfile.h"
+#include "cSkinnedMesh.h"
 
 cOBB::cOBB(void)
 {
@@ -11,7 +11,7 @@ cOBB::~cOBB(void)
 {
 }
 
-void cOBB::Setup()
+void cOBB::Setup(cSkinnedMesh* m_pSkinnedMesh)
 {
 	D3DXVECTOR3 vMin = D3DXVECTOR3(0, 0, 0);
 	D3DXVECTOR3 vMax = D3DXVECTOR3(0, 0, 0);

@@ -15,7 +15,7 @@ public:
 	cOBB(void);
 	~cOBB(void);
 
-	void Setup();
+	void Setup(cSkinnedMesh* m_pSkinnedMesh);
 	void Update(D3DXMATRIXA16* pmatWorld);
 	void DebugRender(D3DCOLOR c);
 
