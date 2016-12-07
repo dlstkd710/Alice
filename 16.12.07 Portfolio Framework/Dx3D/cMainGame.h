@@ -1,6 +1,7 @@
 #pragma once
 
 #include "All_Include.h"
+#include "cSoundManager.h"
 class cMainGame
 {
 private:
@@ -10,7 +11,7 @@ private:
 	cCrtController*				m_pController;
 	iMap*						m_pMap;
 	cTerrain*					m_Terrrain;
-
+	cSoundManager*				m_pSound;
 	/* ------------ */
 	CharacterClass*				m_pCharacter;
 	/* ------------ */
@@ -28,7 +29,7 @@ private:
 	/* ------------ */
 	cMonsterManager*			m_pMonster;
 	/* ------------ */
-
+	LPDIRECTSOUNDBUFFER g_lpDSBG[2];
 public:
 	cMainGame(void);
 	~cMainGame(void);

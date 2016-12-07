@@ -27,6 +27,7 @@
 #include <assert.h>
 #include <mmsystem.h>
 #include <dsound.h>
+#include <stdio.h>
 
 //================
 #include "resource.h"
@@ -35,6 +36,8 @@
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
 #pragma comment(lib, "dsound.lib")
+#pragma comment(lib, "dxguid.lib")
+#pragma comment(lib, "winmm.lib")
 
 // 1. Position 정점의 좌표 x,y,z(float)			: D3DFVF_XYZ
 // 2. RHW (float)                               : D3DFVF_XYZRHW (D3DFVF_XYZ 또는 D3DFVF_NORMAL과 같이 사용불가)

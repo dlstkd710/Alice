@@ -10,7 +10,10 @@ cMainGame::cMainGame(void)
 	, m_pCharacter(NULL)
 	, m_pMap(NULL)
 	, m_pMonster(NULL)
+	, m_pSound(NULL)
 {
+	g_lpDSBG[0] = NULL;
+	g_lpDSBG[1] = NULL;
 }
 
 cMainGame::~cMainGame(void)
@@ -83,13 +86,35 @@ void cMainGame::Setup()
 	m_pMonster->init(NIGHTMARE, D3DXVECTOR3(-10, 0, -10));
 	m_pMonster->init(FIREFLY, D3DXVECTOR3(10, 0, -10));
 	m_pMonster->charLink(m_pCharacter);
-}
+
+
+	m_pSound = new cSoundManager;
+	m_pSound->CreateDirectSound(g_hWnd);
+	m_pSound->LoadWave("./sound/엔딩.wav", &g_lpDSBG[0]);
+	m_pSound->LoadWave("./sound/타이틀.wav", &g_lpDSBG[1]);
+	m_pSound->Play(g_lpDSBG[0],FALSE);
+
+} 
 
 void cMainGame::Update()
 {
 	g_pTimeManager->Update();
 
-
+	if (g_pkeyManager->isOnceKeyDown(VK_F7))
+	{
+		m_pSound->stop(g_lpDSBG[0]);
+		m_pSound->Play(g_lpDSBG[1], FALSE);
+	}
+	if (g_pkeyManager->isStayKeyDown(VK_DOWN))
+	{
+		m_pSound->SetVolume(g_lpDSBG[0], 50);
+		m_pSound->SetVolume(g_lpDSBG[1], 50);
+	}
+	if (g_pkeyManager->isStayKeyDown(VK_UP))
+	{
+		m_pSound->SetVolume(g_lpDSBG[0], 10);
+		m_pSound->SetVolume(g_lpDSBG[1], 10);
+	}
 	/* --------- */
 	if (m_pController)
 		m_pController->Update(NULL);
