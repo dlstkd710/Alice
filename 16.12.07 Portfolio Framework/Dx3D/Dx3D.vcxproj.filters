@@ -279,6 +279,9 @@
     <ClInclude Include="cM_Fly.h">
       <Filter>소스 파일\몬스터</Filter>
     </ClInclude>
+    <ClInclude Include="cOBB.h">
+      <Filter>소스 파일\Bounding</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -442,6 +445,9 @@
     </ClCompile>
     <ClCompile Include="cM_Fly.cpp">
       <Filter>소스 파일\몬스터</Filter>
+    </ClCompile>
+    <ClCompile Include="cOBB.cpp">
+      <Filter>소스 파일\Bounding</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

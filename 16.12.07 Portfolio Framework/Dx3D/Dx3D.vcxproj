@@ -115,6 +115,7 @@
     <ClInclude Include="cMtlTex.h" />
     <ClInclude Include="cM_Fly.h" />
     <ClInclude Include="cM_Nightmare.h" />
+    <ClInclude Include="cOBB.h" />
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cObjectAllocate.h" />
     <ClInclude Include="cObjectXfile.h" />
@@ -173,6 +174,7 @@
     <ClCompile Include="cMtlTex.cpp" />
     <ClCompile Include="cM_Fly.cpp" />
     <ClCompile Include="cM_Nightmare.cpp" />
+    <ClCompile Include="cOBB.cpp" />
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cObjectAllocate.cpp" />
     <ClCompile Include="cObjectXfile.cpp" />

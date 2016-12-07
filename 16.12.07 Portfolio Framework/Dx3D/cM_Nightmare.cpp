@@ -84,23 +84,23 @@ void cM_Nightmare::Update(D3DXVECTOR3 _char_position)
 	_count++;
 	if (_count % 30 == 0)
 	{
-		float Distance = D3DXVec3Length(&(m_vPosition - m_CharacterPos));
-		if (Distance >= 5.0f)
-		{
 			FindPlayer();
 			if (player_check)
 			{
-				float t = D3DXVec3Length(&(m_vPosition - m_NowGo));
-				cActionMove *_cActionMove = new cActionMove;
-				_cActionMove->SetFrom(m_vPosition);
-				_cActionMove->SetpTo(m_PrevGo);
-				_cActionMove->SetTo(m_NowGo);
-				_cActionMove->SetActionTime(t*0.1);
-				_cActionMove->SetTarget((this));
+				float Distance = D3DXVec3Length(&(m_PrevGo - m_NowGo));
+				if (Distance >= 5.0f)
+				{
+					float t = D3DXVec3Length(&(m_vPosition - m_NowGo));
+					cActionMove *_cActionMove = new cActionMove;
+					_cActionMove->SetFrom(m_vPosition);
+					_cActionMove->SetpTo(m_PrevGo);
+					_cActionMove->SetTo(m_NowGo);
+					_cActionMove->SetActionTime(t*0.1);
+					_cActionMove->SetTarget((this));
 
-				(this)->SetAction(_cActionMove);
+					(this)->SetAction(_cActionMove);
+				}
 			}
-		}
 	}
 	if (_count >= INT16_MAX)
 		_count = 0;

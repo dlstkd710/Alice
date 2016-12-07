@@ -7,7 +7,6 @@ class cObjectXfile : public cGameObject
 private:
 	ST_BONE*					m_pRootBone;
 	LPD3DXANIMATIONCONTROLLER	m_pAnimController;
-
 public:
 	cObjectXfile(void);
 	~cObjectXfile(void);

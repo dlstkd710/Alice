@@ -25,7 +25,8 @@ class cObjectAllocate : public ID3DXAllocateHierarchy
 {
 private:
 	SYNTHESIZE(std::string, m_sFolder, Folder);
-
+	SYNTHESIZE(D3DXVECTOR3, cMax, Max);
+	SYNTHESIZE(D3DXVECTOR3, cMin, Min);
 public:
 	cObjectAllocate(void);
 	~cObjectAllocate(void);
