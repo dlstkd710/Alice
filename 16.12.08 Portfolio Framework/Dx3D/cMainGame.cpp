@@ -86,8 +86,8 @@ void cMainGame::Setup()
 	m_pMonster->init(FIREFLY, D3DXVECTOR3(10, 0, -10));
 	m_pMonster->charLink(m_pCharacter);
 
-	g_pSoundManager->addSound("엔딩", "./sound/엔딩.wav");
-	g_pSoundManager->addSound("오프닝", "./sound/타이틀.wav");
+	g_pSoundManager->addSound("엔딩", "./sound/엔딩.wav",true);
+	g_pSoundManager->addSound("오프닝", "./sound/타이틀.wav",false);
 
 } 
 
@@ -121,14 +121,14 @@ void cMainGame::Update()
 	if (m_pController)
 		m_pController->Update(NULL);
 	/* --------- */
-	//if (m_pCamera)
-	//	m_pCamera->Update(&m_pCharacter->GetPosition());
+	if (m_pCamera)
+		m_pCamera->Update(&m_pCharacter->GetPosition());
 	/* --------- */
 	if (m_UiMain)
 		m_UiMain->Update();
 	/* --------- */
-	//if (m_pCharacter)
-	//	m_pCharacter->Controll(m_pMap, 0 ,m_pCamera->m_fAngleY);
+	if (m_pCharacter)
+		m_pCharacter->Controll(m_pMap, 0 ,m_pCamera->m_fAngleY);
 
 	/* --------- */
 	//m_Object->Update();
@@ -157,8 +157,8 @@ void cMainGame::Render()
 	if (m_pMap)
 		m_pMap->Render();
 	/* ---------  */
-	//if (m_pCharacter)
-	//	m_pCharacter->Render();
+	if (m_pCharacter)
+		m_pCharacter->Render();
 	/* ---------  */
 
 
@@ -179,8 +179,8 @@ void cMainGame::Render()
 	//m_UiMain->Render();
 	/* ---------- */
 	/* --------- */
-	//if (m_pMonster)
-	//	m_pMonster->render();
+	if (m_pMonster)
+		m_pMonster->render();
 	/* --------- */
 	g_pD3DDevice->EndScene();
 

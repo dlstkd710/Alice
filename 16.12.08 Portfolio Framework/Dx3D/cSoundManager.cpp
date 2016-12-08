@@ -10,6 +10,7 @@ cSoundManager::cSoundManager()
 
 cSoundManager::~cSoundManager()
 {
+
 }
 
 HRESULT cSoundManager::init(void)
@@ -20,17 +21,40 @@ HRESULT cSoundManager::init(void)
 void cSoundManager::release(void)
 {
 	SoundsIter iter = _pTotalSounds.begin();
-	for (iter; iter != _pTotalSounds.end(); ++iter)
+	for (; iter != _pTotalSounds.end();)
 	{
-		_pTotalSounds.erase(iter);
+		if (iter->second->_Sound != NULL)
+		{
+			iter->second->_Sound->DeleteDirectSound();
+			SAFE_DELETE(iter->second->_Sound);
+			iter = _pTotalSounds.erase(iter);
+		}
+		else
+		{
+			++iter;
+		}
 	}
+
+	//¸Ê ÀüÃ¼ »èÁ¦
+	_pTotalSounds.clear();
+
 	SoundbuffersIter iterbuf = _pTotalBuffers.begin();
-	for (iterbuf; iterbuf != _pTotalBuffers.end(); ++iterbuf)
+	for (; iterbuf != _pTotalBuffers.end();)
 	{
-		_pTotalBuffers.erase(iterbuf);
+		if (iterbuf->second != NULL)
+		{
+			//iterbuf->second->AddRef();
+			//SAFE_DELETE(iterbuf->second);
+			iterbuf = _pTotalBuffers.erase(iterbuf);
+		}
+		else
+		{
+			++iterbuf;
+		}
 	}
-	ZeroMemory(&_pTotalSounds, sizeof(_pTotalSounds));
-	ZeroMemory(&_pTotalBuffers, sizeof(_pTotalBuffers));
+
+	//¸Ê ÀüÃ¼ »èÁ¦
+	_pTotalBuffers.clear();
 }
 
 void cSoundManager::update(void)
@@ -38,14 +62,19 @@ void cSoundManager::update(void)
 
 }
 
-void cSoundManager::addSound(string keyName, char *soundName)
+void cSoundManager::addSound(string keyName, char *soundName, bool bgm)
 {
 	cSound* AdSound = NULL;
 	AdSound = new cSound;
 	LPDIRECTSOUNDBUFFER AdBuffer = NULL;
 	AdSound->CreateDirectSound(g_hWnd);
 	AdSound->LoadWave(soundName, &AdBuffer);
-	_pTotalSounds.insert(make_pair(keyName, AdSound));
+	g_sound *NewGsound = NULL;
+	NewGsound = new g_sound;
+	NewGsound->_Sound = AdSound;
+	NewGsound->_bgm = bgm;
+
+	_pTotalSounds.insert(make_pair(keyName, NewGsound));
 	_pTotalBuffers.insert(make_pair(keyName, AdBuffer));
 }
 
@@ -53,8 +82,8 @@ void cSoundManager::play(string keyName,  bool loop, float volume)
 {
 	if (_pTotalSounds[keyName])
 	{
-		_pTotalSounds[keyName]->Play(_pTotalBuffers[keyName], TRUE);
-		_pTotalSounds[keyName]->SetVolume(_pTotalBuffers[keyName], volume);
+		_pTotalSounds[keyName]->_Sound->Play(_pTotalBuffers[keyName], TRUE);
+		_pTotalSounds[keyName]->_Sound->SetVolume(_pTotalBuffers[keyName], volume);
 	}
 }
 
@@ -62,6 +91,6 @@ void cSoundManager::stop(string keyName)
 {
 	if (_pTotalSounds[keyName])
 	{
-		_pTotalSounds[keyName]->stop(_pTotalBuffers[keyName]);
+		_pTotalSounds[keyName]->_Sound->stop(_pTotalBuffers[keyName]);
 	}
 }

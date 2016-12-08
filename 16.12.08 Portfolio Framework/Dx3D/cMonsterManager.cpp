@@ -26,14 +26,12 @@ HRESULT cMonsterManager::init(MonsterNum MtNum, D3DXVECTOR3 MtPos)
 		_Nightmare = new cM_Nightmare;
 		_Nightmare->Init(MtPos);
 		_vMonster.push_back(_Nightmare);
-		_mMonster.insert(pair<int, cMonster*>(0, _Nightmare));
 		break;
 	case 1:
 		cMonster *_Fly;
 		_Fly = new cM_Fly;
 		_Fly->Init(MtPos);
 		_vMonster.push_back(_Fly);
-		_mMonster.insert(pair<int, cMonster*>(0, _Fly));
 		break;
 	case 2:
 		break;
