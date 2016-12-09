@@ -252,13 +252,13 @@
     <ClInclude Include="UiMain.h">
       <Filter>소스 파일\UI</Filter>
     </ClInclude>
-    <ClInclude Include="cObjectAllocate.h">
-      <Filter>소스 파일\Xfile 로더</Filter>
+    <ClInclude Include="cObjtool.h">
+      <Filter>소스 파일\obj툴</Filter>
     </ClInclude>
     <ClInclude Include="cObjectXfile.h">
-      <Filter>소스 파일\Xfile 로더</Filter>
+      <Filter>소스 파일\obj툴</Filter>
     </ClInclude>
-    <ClInclude Include="cObjtool.h">
+    <ClInclude Include="cObjectAllocate.h">
       <Filter>소스 파일\obj툴</Filter>
     </ClInclude>
   </ItemGroup>
@@ -413,13 +413,13 @@
     <ClCompile Include="UiMain.cpp">
       <Filter>소스 파일\UI</Filter>
     </ClCompile>
-    <ClCompile Include="cObjectAllocate.cpp">
-      <Filter>소스 파일\Xfile 로더</Filter>
+    <ClCompile Include="cObjtool.cpp">
+      <Filter>소스 파일\obj툴</Filter>
     </ClCompile>
     <ClCompile Include="cObjectXfile.cpp">
-      <Filter>소스 파일\Xfile 로더</Filter>
+      <Filter>소스 파일\obj툴</Filter>
     </ClCompile>
-    <ClCompile Include="cObjtool.cpp">
+    <ClCompile Include="cObjectAllocate.cpp">
       <Filter>소스 파일\obj툴</Filter>
     </ClCompile>
   </ItemGroup>

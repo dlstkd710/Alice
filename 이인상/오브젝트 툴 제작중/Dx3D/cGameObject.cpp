@@ -8,6 +8,9 @@ cGameObject::cGameObject(void)
 	, m_pAction(NULL)
 	, m_vPrevPosition(0, 0, 0)
 	, m_vScale(1, 1, 1)
+	, m_vRotateX(0.0f)
+	, m_vRotateY(0.0f)
+	, m_vRotateZ(0.0f)
 {
 	D3DXMatrixIdentity(&m_matWorld);
 }

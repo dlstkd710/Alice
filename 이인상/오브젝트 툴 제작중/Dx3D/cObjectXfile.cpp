@@ -75,12 +75,15 @@ void cObjectXfile::Render(ST_BONE* pBone)
 	{
 		for (size_t i = 0; i < pBoneMesh->vecMtlTex.size(); ++i)
 		{
-			D3DXMATRIXA16 matS, matT;
+			D3DXMATRIXA16 matS, matRx, matRy, matRz, matT;
 			D3DXVECTOR3 thisPos = this->GetPosition();
 			D3DXMatrixScaling(&matS, m_vScale.x, m_vScale.y, m_vScale.z);
+			D3DXMatrixRotationX(&matRx, m_vRotateX);
+			D3DXMatrixRotationY(&matRy, m_vRotateY);
+			D3DXMatrixRotationZ(&matRz, m_vRotateZ);
 			D3DXMatrixTranslation(&matT, thisPos.x, thisPos.y, thisPos.z);
 
-			m_matWorld = matS * matT;
+			m_matWorld = matS * matRx * matRy * matRz * matT;
 
 			g_pD3DDevice->SetTransform(D3DTS_WORLD, &m_matWorld);
 			g_pD3DDevice->SetMaterial(&pBoneMesh->vecMtlTex[i]->GetMtl());

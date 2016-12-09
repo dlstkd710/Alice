@@ -72,16 +72,21 @@ STDMETHODIMP cObjectAllocate::CreateMeshContainer(
 	pBoneMesh->NumMaterials = NumMaterials;
 	pBoneMesh->pAdjacency = NULL;
 	pBoneMesh->pEffects = NULL;
+
+
 	for (DWORD i = 0; i < NumMaterials; ++i)
 	{
 		cMtlTex* pMtlTex = new cMtlTex;
 		D3DMATERIAL9 tempMeterial;
 		ZeroMemory(&tempMeterial, sizeof(D3DMATERIAL9));
-		tempMeterial = pMaterials[i].MatD3D;
-		pMtlTex->SetMtl(tempMeterial);
-		std::string sFullPath = m_sFolder + "/" + std::string(pMaterials[i].pTextureFilename);
-		pMtlTex->SetTexture(g_pTextureManager->GetTexture(sFullPath));
-		pBoneMesh->vecMtlTex.push_back(pMtlTex);
+
+		if (pMaterials[i].pTextureFilename) {
+			tempMeterial = pMaterials[i].MatD3D;
+			pMtlTex->SetMtl(tempMeterial);
+			std::string sFullPath = m_sFolder + "/" + std::string(pMaterials[i].pTextureFilename);
+			pMtlTex->SetTexture(g_pTextureManager->GetTexture(sFullPath));
+			pBoneMesh->vecMtlTex.push_back(pMtlTex);
+		}
 	}
 	pBoneMesh->pNextMeshContainer = NULL;
 
