@@ -18,6 +18,9 @@ UiMain::~UiMain()
 
 void UiMain::Setup()
 {
+	g_pSoundManager->addSound("오프닝 사운드", "./sound/엘리스 오프닝 테마.wav", true);
+	g_pSoundManager->addSound("VOT 사운드", "./sound/엘리스 VOT 테마.wav", true);
+
 	background1 = new Image;
 	background1->Setup("./Image/엘리스시작화면1.png", 0, 0, 0);
 
@@ -61,25 +64,25 @@ void UiMain::Setup()
 	Titlebutton3->Setup("./Image/타이틀모음/타이틀버튼3.png", 358, 198, 0);
 
 	background3 = new Image;
-	background3->Setup("./Image/씬4/엘리스시작화면3.png", 0, 0, 0);
+	background3->Setup("./Image/씬4/엘리스 시작화면3.png", 0, 0, 0);
 
-	Startrc = cUt::RectMake(689, 495, 160, 100);
+	Startrc = cUt::RectMake(0, 607, 200, 80);
 	Startbutton1 = new Image;
-	Startbutton1->Setup("./Image/씬4/게임시작버튼1.png", 689, 575, 0);
+	Startbutton1->Setup("./Image/씬4/게임시작1.png", 0, 647, 0);
 	Startbutton2 = new Image;
-	Startbutton2->Setup("./Image/씬4/게임시작버튼2.png", 689, 575, 0);
+	Startbutton2->Setup("./Image/씬4/게임시작2.png", 0, 647, 0);
 
-	Setrc = cUt::RectMake(898, 495, 160, 100);
+	Setrc = cUt::RectMake(217, 607, 200, 80);
 	Setbutton1 = new Image;
-	Setbutton1->Setup("./Image/씬4/게임설정버튼1.png", 898, 575, 0);
+	Setbutton1->Setup("./Image/씬4/게임설정1.png", 217, 647, 0);
 	Setbutton2 = new Image;
-	Setbutton2->Setup("./Image/씬4/게임설정버튼2.png", 898, 575, 0);
+	Setbutton2->Setup("./Image/씬4/게임설정2.png", 217, 647, 0);
 
-	Quitrc = cUt::RectMake(1101, 495, 160, 100);
+	Quitrc = cUt::RectMake(434, 607, 200, 80);
 	Quitbutton1 = new Image;
-	Quitbutton1->Setup("./Image/씬4/게임종료버튼1.png", 1101, 575, 0);
+	Quitbutton1->Setup("./Image/씬4/게임종료1.png", 434, 647, 0);
 	Quitbutton2 = new Image;
-	Quitbutton2->Setup("./Image/씬4/게임종료버튼2.png", 1101, 575, 0);
+	Quitbutton2->Setup("./Image/씬4/게임종료2.png", 434, 647, 0);
 
 	Setground = new Image;
 	Setground->Setup("./Image/게임설정/게임설정창.png", 0, 0, 0);
@@ -99,6 +102,11 @@ void UiMain::Setup()
 
 void UiMain::Update()
 {
+	if (Uisecne)
+	{
+		g_pSoundManager->play("오프닝 사운드", true, U_Volume);
+	}
+
 	if (g_pkeyManager->isOnceKeyDown(VK_TAB) && Uisecne && secne != 6)
 	{
 		secne++;
@@ -106,6 +114,8 @@ void UiMain::Update()
 
 	if (secne == 5)
 	{
+		g_pSoundManager->stop("오프닝 사운드");
+		g_pSoundManager->play("VOT 사운드", true, U_Volume);
 		Uisecne = false;
 	}
 }
@@ -217,7 +227,7 @@ void UiMain::SettingRender()
 	if (g_pkeyManager->isStayKeyDown(VK_LBUTTON) && PtInRect(&Volumerc, cUt::GetMousePos()))
 	{
 		Volumebuttonrc.left = cUt::GetMousePos().x - 24;
-		U_Volume = cUt::GetMousePos().x - 117;
+		U_Volume = cUt::GetMousePos().x - 230;
 	}
 	Volumebutton->Render(Volumebuttonrc.left, Volumebuttonrc.top, 0);
 
