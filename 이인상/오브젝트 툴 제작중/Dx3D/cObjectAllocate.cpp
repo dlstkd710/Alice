@@ -3,6 +3,8 @@
 #include "cMtlTex.h"
 
 cObjectAllocate::cObjectAllocate(void)
+	:cMin(FLT_MAX, FLT_MAX, FLT_MAX),
+	cMax(FLT_MIN, FLT_MIN, FLT_MIN)
 {
 }
 
@@ -73,6 +75,19 @@ STDMETHODIMP cObjectAllocate::CreateMeshContainer(
 	pBoneMesh->pAdjacency = NULL;
 	pBoneMesh->pEffects = NULL;
 
+	D3DXVECTOR3 vMin(FLT_MAX, FLT_MAX, FLT_MAX);
+	D3DXVECTOR3 vMax(FLT_MIN, FLT_MIN, FLT_MIN);
+	
+	LPVOID pV = NULL;
+	pMeshData->pMesh->LockVertexBuffer(0, &pV);
+	D3DXComputeBoundingBox((D3DXVECTOR3*)pV,
+		pMeshData->pMesh->GetNumVertices(),
+		D3DXGetFVFVertexSize(ST_PNT_VERTEX::FVF),
+		&vMin,
+		&vMax);
+	D3DXVec3Minimize(&cMin, &cMin, &vMin);
+	D3DXVec3Maximize(&cMax, &cMax, &vMax);
+	pMeshData->pMesh->UnlockVertexBuffer();
 
 	for (DWORD i = 0; i < NumMaterials; ++i)
 	{
