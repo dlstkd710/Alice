@@ -20,6 +20,7 @@
 #include "cSky.h"
 #include "UiMain.h"
 #include "cObjectXfile.h"
+
 #include "cObjectAllocate.h"
 
 ///////몬스터코드/////////
@@ -30,3 +31,5 @@
 #include "CharacterClass.h"
 #include "iMap.h"
 #include "cTerrain.h"
+
+/////// 이펙트 코드 ///////

@@ -37,9 +37,9 @@ void cBoundingSphere::Render()
 	g_pD3DDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	D3DXMATRIXA16 mat;
 	D3DXMatrixTranslation(&mat,
-		0,
+		m_vecCenter.x,
 		m_vecCenter.y,
-		0);
+		m_vecCenter.z);
 	g_pD3DDevice->SetTransform(D3DTS_WORLD, &mat);
 	m_pSphereMesh->DrawSubset(0);
 	g_pD3DDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);

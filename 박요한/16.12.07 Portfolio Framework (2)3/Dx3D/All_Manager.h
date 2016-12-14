@@ -13,3 +13,4 @@
 #include "cFxLoader.h"
 
 #include "cBoundingSphere.h"
+#include "cSoundManager.h"

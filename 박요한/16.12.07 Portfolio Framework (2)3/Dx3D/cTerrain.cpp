@@ -17,6 +17,8 @@ cTerrain::~cTerrain()
 
 HRESULT cTerrain::Heightmap(char *szTexFile, char *szTexFile1, float cellSize)
 {
+	//wchar_t *_szTexFile = NULL;
+	//cUt::CharToWChar(szTexFile, _szTexFile);
 	if (FAILED(D3DXCreateTextureFromFileEx(g_pD3DDevice,
 		szTexFile, D3DX_DEFAULT, D3DX_DEFAULT,
 		D3DX_DEFAULT, 0,
@@ -24,9 +26,25 @@ HRESULT cTerrain::Heightmap(char *szTexFile, char *szTexFile1, float cellSize)
 		D3DX_DEFAULT, D3DX_DEFAULT, 0,
 		NULL, NULL, &m_pkTexture
 	))) {
+		//wchar_t *_cannot = NULL;
+		//cUt::CharToWChar("Can't not open the texture file.", _cannot);
+		//wchar_t *_error = NULL;
+		//cUt::CharToWChar("Error", _error);
 		MessageBox(NULL, "Can't not open the texture file.", "Error", MB_OK);
 		return E_FAIL;
 	}
+	//if (szTexFile1 != "없음") {
+	//	if (FAILED(D3DXCreateTextureFromFileEx(g_pD3DDevice,
+	//		szTexFile1, D3DX_DEFAULT, D3DX_DEFAULT,
+	//		D3DX_DEFAULT, 0,
+	//		D3DFMT_X8R8G8B8, D3DPOOL_MANAGED,
+	//		D3DX_DEFAULT, D3DX_DEFAULT, 0,
+	//		NULL, NULL, &m_pkTexBmp
+	//	))) {
+	//		MessageBox(NULL, "Can't not open the texture file.", "Error", MB_OK);
+	//		return E_FAIL;
+	//	}
+	//}
 	if (m_pkTexBmp == NULL)
 	{
 		m_pkTexBmp = g_pTextureManager->GetTexture(szTexFile1);
@@ -68,6 +86,8 @@ HRESULT cTerrain::Heightmap(char *szTexFile, char *szTexFile1, float cellSize)
 
 	DWORD dwRowPixelSize = d3drc.Pitch / 4;
 
+	//vector<TERRAINVERTEX> vecVertex;
+
 	for (int z = 0; z < this->nVerNumZ; z++)
 	{
 		for (int x = 0; x < this->nVerNumX; x++)
@@ -78,9 +98,15 @@ HRESULT cTerrain::Heightmap(char *szTexFile, char *szTexFile1, float cellSize)
 			vertexPoses[idx].x = startPos.x + (x * fCellScale);
 			vertexPoses[idx].z = startPos.z + (z * fCellScale);
 			DWORD dwPixel = *((LPDWORD)d3drc.pBits + z + x * dwRowPixelSize);
-			y = (float)(dwPixel & 0x000000ff) / 3.f;
+			y = (float)(dwPixel & 0x000000ff) / 6.5f;
 			vertexPoses[idx].y = y;
 
+			//	pVertex[idx].t = D3DXVECTOR2(x / (float)nCellNumZ, z / (float)nCellNumZ);
+			//			pVertex[z].pos = D3DXVECTOR3(x, y, z);
+			//			pVertex[z].n = D3DXVECTOR3(0, 1, 0);
+			//			pVertex[z].t = D3DXVECTOR2(x / (float)nCellNumZ, z / (float)nCellNumZ);
+
+			//	vecVertex.push_back(pVertex[z]);
 			vVertex.push_back(vertexPoses);
 		}
 	}
@@ -263,11 +289,14 @@ void cTerrain::Render()
 	g_pD3DDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	//g_pD3DDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
 	//월드 행렬 일단 초기화
-	D3DXMATRIXA16 matWorld, matY;
+	D3DXMATRIXA16 matWorld, matZ;
 
 
 	D3DXMatrixIdentity(&matWorld);
-	D3DXMatrixIdentity(&matY);
+	D3DXMatrixIdentity(&matZ);
+
+	//D3DXMatrixRotationZ(&matZ, 각도(180.0f));
+	//	matWorld = matZ;
 	g_pD3DDevice->SetTransform(D3DTS_WORLD, &matWorld);
 	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, false);
 	g_pD3DDevice->SetMaterial(&m_stMtl);

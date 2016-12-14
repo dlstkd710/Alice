@@ -17,6 +17,8 @@ HRESULT cBoundingRect::Setup(D3DXVECTOR3* pMin, D3DXVECTOR3* pMax)
 	if (FAILED(D3DXCreateBox(g_pD3DDevice, pMax->x - pMin->x,
 		pMax->y - pMin->y, pMax->z - pMin->z, &m_pBoxMesh, NULL)))
 	{
+		//wchar_t *BoundingLPC = NULL;
+		//cUt::CharToWChar("Bounding Box Setup Fail", BoundingLPC);
 		MSGBOX("Bounding Box Setup Fail");
 		return E_FAIL;
 	}

@@ -9,7 +9,9 @@ cMainGame::cMainGame(void)
 	, m_pSky(NULL)
 	, m_pCharacter(NULL)
 	, m_pMap(NULL)
+	, m_pMonster(NULL)
 {
+
 }
 
 cMainGame::~cMainGame(void)
@@ -25,7 +27,7 @@ cMainGame::~cMainGame(void)
 	/* --------- */
 	SAFE_RELEASE(m_pSky);
 	/* --------- */
-
+	SAFE_DELETE(m_pMonster);
 
 
 
@@ -34,6 +36,7 @@ cMainGame::~cMainGame(void)
 	g_pDeviceManager->Destroy();
 	Animation_M->Destroy();
 	g_pFontManager->Release();
+	g_pSoundManager->release();
 }
 
 
@@ -48,7 +51,7 @@ void cMainGame::Setup()
 	m_pGrid = new cGrid;
 	m_pGrid->Setup(30);
 
-	SetLight();
+	//SetLight();
 	//_Animation->SetAnimationIndex(4);
 
 	/* --------- */
@@ -64,25 +67,56 @@ void cMainGame::Setup()
 	m_pMap = m_Terrrain;
 
 	/* --------- */
-
-
-
-	/* --------- */
 	m_UiMain = new UiMain;
 	m_UiMain->Setup();
 
-	//m_Object = new cObjectXfile;
-	//m_Object->Load("./Object/", "rock.X");
-	//m_Object->SetPosition(D3DXVECTOR3(0, 0, 0));
-	//m_Object->SetScale(D3DXVECTOR3(0.01f, 0.01f, 0.01f));
+	m_Object = new cObjectXfile;
+	m_Object->Load("./Object/", "rock.X");
+	m_Object->SetPosition(D3DXVECTOR3(0, 0, 0));
+	m_Object->SetScale(D3DXVECTOR3(0.01f, 0.01f, 0.01f));
 	/* --------- */
-}
+
+	/* --------- */
+	m_pMonster = new cMonsterManager;
+	m_pMonster->init(NIGHTMARE, D3DXVECTOR3(-10, 0, -10));
+	m_pMonster->init(FIREFLY, D3DXVECTOR3(10, 0, -10));
+	m_pMonster->init(FIREFLY, D3DXVECTOR3(200, 0, 200));
+	m_pMonster->init(FIREFLY, D3DXVECTOR3(150, 0, 200));
+	m_pMonster->init(FIREFLY, D3DXVECTOR3(100, 0, 200));
+	m_pMonster->init(FIREFLY, D3DXVECTOR3(50, 0, 200));
+	m_pMonster->charLink(m_pCharacter);
+
+	g_pSoundManager->addSound("엔딩", "./sound/엔딩.wav",true);
+	g_pSoundManager->addSound("오프닝", "./sound/타이틀.wav",false);
+
+} 
 
 void cMainGame::Update()
 {
 	g_pTimeManager->Update();
 
-
+	if (g_pkeyManager->isOnceKeyDown(VK_F7))
+	{
+		g_pSoundManager->stop("오프닝");
+		g_pSoundManager->play("엔딩", TRUE, 100.0f);
+	}
+	if (g_pkeyManager->isStayKeyDown(VK_DOWN))
+	{
+		g_pSoundManager->play("엔딩", TRUE, 50.0f);
+	}
+	if (g_pkeyManager->isStayKeyDown(VK_UP))
+	{
+		g_pSoundManager->play("엔딩", TRUE, 100.0f);
+	}
+	if (g_pkeyManager->isOnceKeyDown(VK_F6))
+	{
+		g_pSoundManager->stop("엔딩");
+	}
+	if (g_pkeyManager->isOnceKeyDown(VK_F5))
+	{
+		g_pSoundManager->stop("엔딩");
+		g_pSoundManager->play("오프닝",TRUE,100.0f);
+	}
 	/* --------- */
 	if (m_pController)
 		m_pController->Update(NULL);
@@ -94,11 +128,15 @@ void cMainGame::Update()
 		m_UiMain->Update();
 	/* --------- */
 	if (m_pCharacter)
-		m_pCharacter->Controll(m_pMap, 0 ,m_pCamera->m_fAngleY);
+		m_pCharacter->Controll(m_pMap, 0, m_pCamera->m_fAngleY);
 
 	/* --------- */
 	//m_Object->Update();
 	/* --------- */
+	if (m_pMonster)
+		m_pMonster->update();
+	/* --------- */
+	/* ---------  */
 
 	g_pAutoReleasePool->Drain();
 }
@@ -115,13 +153,12 @@ void cMainGame::Render()
 	g_pD3DDevice->BeginScene();
 
 	/* ---------- */
-	//if (m_pSky)
-	//	m_pSky->Render(m_pCharacter->GetWorldTM(), m_pCamera->GetViewProjMatrix());
+	if (m_pSky)
+		//m_pSky->Render(m_pCharacter->GetWorldTM(), m_pCamera->GetViewProjMatrix());
 	/* ---------- */
-	//if (m_pMap)
-	//	m_pMap->Render();
+	if (m_pMap)
+		//m_pMap->Render();
 	/* ---------  */
-
 	if (m_pCharacter)
 		m_pCharacter->Render();
 	/* ---------  */
@@ -134,16 +171,16 @@ void cMainGame::Render()
 	D3DXMatrixIdentity(&matI);
 	D3DXMatrixIdentity(&matT);
 	g_pD3DDevice->SetTransform(D3DTS_WORLD, &matI);
-	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
-
-
-	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
+	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, false);
 
 	/* ---------- */
 	//m_Object->Render();
 	//m_UiMain->Render();
 	/* ---------- */
-
+	/* --------- */
+	if (m_pMonster)
+	//	m_pMonster->render();
+	/* --------- */
 	g_pD3DDevice->EndScene();
 
 	g_pD3DDevice->Present(NULL, NULL, NULL, NULL);

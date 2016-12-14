@@ -1,6 +1,9 @@
 #pragma once
 
 #include "All_Include.h"
+
+#include "EffectClass.h"
+
 class cMainGame
 {
 private:
@@ -10,7 +13,6 @@ private:
 	cCrtController*				m_pController;
 	iMap*						m_pMap;
 	cTerrain*					m_Terrrain;
-
 	/* ------------ */
 	CharacterClass*				m_pCharacter;
 	/* ------------ */
@@ -24,6 +26,11 @@ private:
 
 	cObjectXfile* m_Object;
 	/* ------------ */
+
+	/* ------------ */
+	cMonsterManager*			m_pMonster;
+	/* ------------ */
+	EffectClass*				m_EffectClass;
 
 public:
 	cMainGame(void);

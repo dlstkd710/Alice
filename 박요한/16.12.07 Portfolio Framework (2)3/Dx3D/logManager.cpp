@@ -93,6 +93,10 @@ VOID logManager::LogFile(char * strmsg, ...)
 
 	if (m_nTarget & LOG_FILE)
 	{
+		//wchar_t* _szBuf = NULL;
+		//wchar_t* _txt = NULL;
+		//cUt::CharToWChar(szBuf, _szBuf);
+		//cUt::CharToWChar("%s.txt", _txt);
 		wsprintf(szBuf, "%s.txt", m_szFileName);
 	}
 
@@ -104,6 +108,8 @@ VOID logManager::LogFile(char * strmsg, ...)
 	// 에러 처리 
 	if (fp == NULL)
 	{
+		//wchar_t* _errorfile = NULL;
+		//cUt::CharToWChar("에러 파일로 저장 실패", _errorfile);
 		MessageBox(0, "에러 파일로 저장 실패", 0, 0);
 		return;
 	}
@@ -153,6 +159,8 @@ VOID logManager::CreateLogWindow(HWND hWnd)
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
 	wc.lpszMenuName = NULL;
+	//wchar_t* _lpszClassName = NULL;
+	//cUt::CharToWChar("LogWin", _lpszClassName);
 	wc.lpszClassName = "LogWin";
 
 	RegisterClass(&wc);
@@ -172,7 +180,8 @@ VOID logManager::CreateLogWindow(HWND hWnd)
 
 	hParenthWnd = hWnd;
 	hInst = GetModuleHandle(NULL);
-
+	//wchar_t* _lpsz= NULL;
+	//cUt::CharToWChar("LogWin", _lpsz);
 	m_hWndLog = CreateWindow(
 		"LogWin",
 		LOG_WINDOW_TITLE,
@@ -185,6 +194,8 @@ VOID logManager::CreateLogWindow(HWND hWnd)
 	// 로그 윈도우에 리스트 박스 윈도우 붙여 넣는다.
 	//
 	GetClientRect(m_hWndLog, &rc);
+	//wchar_t* _listbox = NULL;
+	//cUt::CharToWChar("listbox", _listbox);
 	m_hWndListBox = CreateWindow("listbox", "", WS_CHILD | WS_VSCROLL, 0, 0, rc.right, rc.bottom, m_hWndLog, NULL, GetModuleHandle(NULL), NULL);
 	ShowWindow(m_hWndLog, SW_SHOW);
 	ShowWindow(m_hWndListBox, SW_SHOW);
