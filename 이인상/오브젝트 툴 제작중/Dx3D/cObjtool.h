@@ -46,6 +46,7 @@ public:
 	void ObjPasing();
 
 	void ObjMove();
+	void ObjObbSet();
 	void ObjSetting();
 	void SetObjSelect();
 

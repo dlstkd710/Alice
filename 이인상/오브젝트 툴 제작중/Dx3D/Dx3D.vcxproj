@@ -110,6 +110,7 @@
     <ClInclude Include="cGroup.h" />
     <ClInclude Include="cMainGame.h" />
     <ClInclude Include="cMtlTex.h" />
+    <ClInclude Include="cOBB.h" />
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cObjectAllocate.h" />
     <ClInclude Include="cObjectXfile.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="cGroup.cpp" />
     <ClCompile Include="cMainGame.cpp" />
     <ClCompile Include="cMtlTex.cpp" />
+    <ClCompile Include="cOBB.cpp" />
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cObjectAllocate.cpp" />
     <ClCompile Include="cObjectXfile.cpp" />

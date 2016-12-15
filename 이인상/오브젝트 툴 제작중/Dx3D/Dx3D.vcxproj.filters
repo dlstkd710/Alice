@@ -261,6 +261,9 @@
     <ClInclude Include="cObjectAllocate.h">
       <Filter>소스 파일\obj툴</Filter>
     </ClInclude>
+    <ClInclude Include="cOBB.h">
+      <Filter>소스 파일\Bounding</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -421,6 +424,9 @@
     </ClCompile>
     <ClCompile Include="cObjectAllocate.cpp">
       <Filter>소스 파일\obj툴</Filter>
+    </ClCompile>
+    <ClCompile Include="cOBB.cpp">
+      <Filter>소스 파일\Bounding</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
