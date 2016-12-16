@@ -80,7 +80,7 @@ void cCamera::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_LBUTTONDOWN:
 	{
 		m_isLButtonDown = true;
-		
+
 		m_ptPrevMouse.x = LOWORD(lParam);
 		m_ptPrevMouse.y = HIWORD(lParam);
 	}

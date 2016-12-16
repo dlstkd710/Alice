@@ -178,4 +178,18 @@ namespace cUt
 		}
 	}
 
+	// char to LPCWSTR
+	void CharToWChar(const char * pstrSrc, wchar_t pwstrDest[])
+	{
+		int nLen = (int)strlen(pstrSrc) + 1;
+		mbstowcs(pwstrDest, pstrSrc, nLen);
+	}
+
+	//LPCWSTR to char
+	void WCharToChar(const wchar_t * pwstrSrc, char pstrDest[])
+	{
+		int nLen = (int)wcslen(pwstrSrc);
+		wcstombs(pstrDest, pwstrSrc, nLen + 1);
+	}
+
 }

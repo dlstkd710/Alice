@@ -20,8 +20,14 @@ void UiMain::Setup()
 	background1 = new Image;
 	background1->Setup("./Image/엘리스시작화면1.png", 0, 0, 0);
 
+	Hour = new Image;
+	Hour->Setup("./Image/시침.png", -6, -24, 0);
+
 	Min = new Image;
-	Min->Setup("./Image/분침.png", -6, -24, 0);
+	Min->Setup("./Image/분침.png", -6, -5, 0);
+
+	clock = new Image;
+	clock->Setup("./Image/시계.png", 624, 484, 0);
 
 	background2 = new Image;
 	background2->Setup("./Image/엘리스시작화면2.png", 0, 0, 0);
@@ -53,6 +59,27 @@ void UiMain::Setup()
 	Titlebutton3 = new Image;
 	Titlebutton3->Setup("./Image/타이틀모음/타이틀버튼3.png", 358, 198, 0);
 
+	background3 = new Image;
+	background3->Setup("./Image/씬4/엘리스시작화면3.png", 0, 0, 0);
+
+	Startrc = cUt::RectMake(689, 495, 160, 100);
+	Startbutton1 = new Image;
+	Startbutton1->Setup("./Image/씬4/게임시작버튼1.png", 689, 575, 0);
+	Startbutton2 = new Image;
+	Startbutton2->Setup("./Image/씬4/게임시작버튼2.png", 689, 575, 0);
+
+	Setrc = cUt::RectMake(898, 495, 160, 100);
+	Setbutton1 = new Image;
+	Setbutton1->Setup("./Image/씬4/게임설정버튼1.png", 898, 575, 0);
+	Setbutton2 = new Image;
+	Setbutton2->Setup("./Image/씬4/게임설정버튼2.png", 898, 575, 0);
+
+	Quitrc = cUt::RectMake(1101, 495, 160, 100);
+	Quitbutton1 = new Image;
+	Quitbutton1->Setup("./Image/씬4/게임종료버튼1.png", 1101, 575, 0);
+	Quitbutton2 = new Image;
+	Quitbutton2->Setup("./Image/씬4/게임종료버튼2.png", 1101, 575, 0);
+
 	HpSetUp();
 }
 
@@ -63,7 +90,7 @@ void UiMain::Update()
 		secne++;
 	}
 
-	if (secne == 4)
+	if (secne == 5)
 	{
 		Uisecne = false;
 	}
@@ -76,26 +103,36 @@ void UiMain::Render()
 	if (secne == 1) secne1Render();
 	if (secne == 2) secne2Render();
 	if (secne == 3) TitleRender();
+	if (secne == 4) secne3Render();
 }
 
 void UiMain::secne1Render()
 {
 	background1->Render();
 
+	clock->Render();
+
+	moveHour += 0.01f;
 	moveMin += 0.05f;
+	if (moveHour >= D3DX_PI * 2) moveHour = 0.0f;
 	if (moveMin >= D3DX_PI * 2) moveMin = 0.0f;
 
 	D3DXMATRIXA16 matworld;
+	D3DXMATRIXA16 matworld2;
 
 	D3DXMATRIXA16 rotate;
-	D3DXMatrixRotationZ(&rotate, moveMin);
+	D3DXMATRIXA16 rotate2;
+	D3DXMatrixRotationZ(&rotate, moveHour);
+	D3DXMatrixRotationZ(&rotate2, moveMin);
 
 	D3DXMATRIXA16 trans;
 	D3DXMatrixTranslation(&trans, 692, 545, 0);
 
 	matworld = rotate * trans;
+	matworld2 = rotate2 * trans;
 
-	Min->Render(&matworld);
+	Min->Render(&matworld2);
+	Hour->Render(&matworld);
 }
 
 void UiMain::secne2Render()
@@ -128,6 +165,31 @@ void UiMain::TitleRender()
 	{
 		Enterbutton2->Render();
 		if (g_pkeyManager->isOnceKeyDown(VK_LBUTTON) && TitleSelect) secne++;
+	}
+}
+
+void UiMain::secne3Render()
+{
+	background3->Render();
+
+	Startbutton1->Render();
+	if (PtInRect(&Startrc, cUt::GetMousePos()))
+	{
+		Startbutton2->Render();
+		if (g_pkeyManager->isOnceKeyDown(VK_LBUTTON)) secne++;
+	}
+
+	Setbutton1->Render();
+	if (PtInRect(&Setrc, cUt::GetMousePos()))
+	{
+		Setbutton2->Render();
+	}
+
+	Quitbutton1->Render();
+	if (PtInRect(&Quitrc, cUt::GetMousePos()))
+	{
+		Quitbutton2->Render();
+		if (g_pkeyManager->isOnceKeyDown(VK_LBUTTON)) PostQuitMessage(0);
 	}
 }
 

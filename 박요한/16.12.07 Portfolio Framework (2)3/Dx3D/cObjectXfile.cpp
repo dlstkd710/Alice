@@ -6,6 +6,7 @@ cObjectXfile::cObjectXfile(void)
 	: m_pRootBone(NULL)
 	, m_pAnimController(NULL)
 {
+
 }
 
 cObjectXfile::~cObjectXfile(void)
@@ -61,12 +62,17 @@ void cObjectXfile::Update()
 {
 	if (m_pRootBone == NULL)
 		return;
-
-	//m_pAnimController->AdvanceTime(g_pTimeManager->GetDeltaTime(), NULL);
-
 	//Update(m_pRootBone, NULL);
-	//UpdateSkinnedMesh(m_pRootBone);
 }
+
+void cObjectXfile::UpdateMatrix(D3DXMATRIXA16 * pParent)
+{
+	if (m_pRootBone == NULL)
+		return;
+
+	Render(m_pRootBone, pParent);
+}
+
 
 void cObjectXfile::Render(ST_BONE* pBone)
 {
@@ -100,6 +106,41 @@ void cObjectXfile::Render(ST_BONE* pBone)
 		Render((ST_BONE*)pBone->pFrameSibling);
 	}
 }
+
+
+void cObjectXfile::Render(ST_BONE* pBone ,  D3DXMATRIXA16 * trans)
+{
+	ST_BONE_MESH* pBoneMesh = (ST_BONE_MESH*)pBone->pMeshContainer;
+	while (pBoneMesh)
+	{
+		for (size_t i = 0; i < pBoneMesh->vecMtlTex.size(); ++i)
+		{
+			D3DXMATRIXA16 matS, matT;
+			D3DXVECTOR3 thisPos = this->GetPosition();
+			D3DXMatrixScaling(&matS, m_vScale.x, m_vScale.y, m_vScale.z);
+			D3DXMatrixTranslation(&matT, thisPos.x, thisPos.y, thisPos.z);
+
+			m_matWorld = matS * matT;
+
+			g_pD3DDevice->SetTransform(D3DTS_WORLD, trans);
+			g_pD3DDevice->SetMaterial(&pBoneMesh->vecMtlTex[i]->GetMtl());
+			g_pD3DDevice->SetTexture(0, pBoneMesh->vecMtlTex[i]->GetTexture());
+			pBoneMesh->pOrigMesh->DrawSubset(i);
+		}
+		pBoneMesh = (ST_BONE_MESH*)pBoneMesh->pNextMeshContainer;
+	}
+
+	if (pBone->pFrameFirstChild)
+	{
+		Render((ST_BONE*)pBone->pFrameFirstChild);
+	}
+
+	if (pBone->pFrameSibling)
+	{
+		Render((ST_BONE*)pBone->pFrameSibling);
+	}
+}
+
 
 void cObjectXfile::Render()
 {

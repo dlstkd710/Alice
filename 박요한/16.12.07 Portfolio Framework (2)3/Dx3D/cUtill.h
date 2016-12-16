@@ -50,6 +50,10 @@ namespace cUt
 		const DWORD* pIndices,			//인덱스 배열포인터 ( 일단 인덱스는 DWORD 로 대동단결 )
 		int indicesNum					//인덱스 배열포인터 갯수
 	);
+	
+	void CharToWChar(const char* pstrSrc, wchar_t pwstrDest[]);
+
+	void WCharToChar(const wchar_t* pwstrSrc, char pstrDest[]);
 
 	inline POINT PointMake(int x, int y)
 	{

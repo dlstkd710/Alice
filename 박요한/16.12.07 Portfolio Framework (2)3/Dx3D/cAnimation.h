@@ -15,10 +15,10 @@ private:
 	D3DXMATRIX*					m_pmWorkingPalette;
 	ST_SPHERE					m_stBoundingSphere;
 
-	bool						isBlend;
-	float						WholeTime;
-	float						PassedTime;
-	float						PerTime;
+	float						m_fBlendTime;
+	float						m_fPassedBlendTime;
+	bool						m_isBlending;
+	bool						m_OnceRoop;
 
 public:
 	D3DXFRAME_DERIVED*			m_pRootFrame;

@@ -112,8 +112,13 @@
     <ClInclude Include="cMainGame.h" />
     <ClInclude Include="cMonster.h" />
     <ClInclude Include="cMonsterManager.h" />
+    <ClInclude Include="cMtAllocate.h" />
     <ClInclude Include="cMtlTex.h" />
+    <ClInclude Include="cMtMesh.h" />
+    <ClInclude Include="cMtMeshManager.h" />
+    <ClInclude Include="cM_Fly.h" />
     <ClInclude Include="cM_Nightmare.h" />
+    <ClInclude Include="cOBB.h" />
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cObjectAllocate.h" />
     <ClInclude Include="cObjectXfile.h" />
@@ -122,6 +127,7 @@
     <ClInclude Include="cPyramid.h" />
     <ClInclude Include="cRay.h" />
     <ClInclude Include="cSky.h" />
+    <ClInclude Include="cSound.h" />
     <ClInclude Include="cSoundManager.h" />
     <ClInclude Include="cTerrain.h" />
     <ClInclude Include="cText.h" />
@@ -133,6 +139,7 @@
     <ClInclude Include="cUITextView.h" />
     <ClInclude Include="cUtill.h" />
     <ClInclude Include="Dx3D.h" />
+    <ClInclude Include="EffectClass.h" />
     <ClInclude Include="fontManager.h" />
     <ClInclude Include="FrustumClling.h" />
     <ClInclude Include="Image.h" />
@@ -140,6 +147,7 @@
     <ClInclude Include="keyManager.h" />
     <ClInclude Include="logManager.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Shadow.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Terrain.h" />
@@ -169,8 +177,13 @@
     <ClCompile Include="cMainGame.cpp" />
     <ClCompile Include="cMonster.cpp" />
     <ClCompile Include="cMonsterManager.cpp" />
+    <ClCompile Include="cMtAllocate.cpp" />
     <ClCompile Include="cMtlTex.cpp" />
+    <ClCompile Include="cMtMesh.cpp" />
+    <ClCompile Include="cMtMeshManager.cpp" />
+    <ClCompile Include="cM_Fly.cpp" />
     <ClCompile Include="cM_Nightmare.cpp" />
+    <ClCompile Include="cOBB.cpp" />
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cObjectAllocate.cpp" />
     <ClCompile Include="cObjectXfile.cpp" />
@@ -179,6 +192,7 @@
     <ClCompile Include="cPyramid.cpp" />
     <ClCompile Include="cRay.cpp" />
     <ClCompile Include="cSky.cpp" />
+    <ClCompile Include="cSound.cpp" />
     <ClCompile Include="cSoundManager.cpp" />
     <ClCompile Include="cTerrain.cpp" />
     <ClCompile Include="cText.cpp" />
@@ -190,12 +204,14 @@
     <ClCompile Include="cUITextView.cpp" />
     <ClCompile Include="cUtill.cpp" />
     <ClCompile Include="Dx3D.cpp" />
+    <ClCompile Include="EffectClass.cpp" />
     <ClCompile Include="fontManager.cpp" />
     <ClCompile Include="FrustumClling.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="iMap.cpp" />
     <ClCompile Include="keyManager.cpp" />
     <ClCompile Include="logManager.cpp" />
+    <ClCompile Include="Shadow.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

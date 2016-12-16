@@ -11,10 +11,10 @@ cAnimation::cAnimation(char* szFolder, char* szFilename)
 	, m_dwWorkingPaletteSize(0)
 	, m_pmWorkingPalette(NULL)
 	, m_pEffect(NULL)
-	, WholeTime(0.8f)
-	, PassedTime(0.0f)
-	, PerTime(0.0f)
-	, isBlend(false)
+	, m_fBlendTime(0.3f)
+	, m_fPassedBlendTime(0.0f)
+	, m_isBlending(false)
+	, m_OnceRoop(false)
 {
 
 	cAnimation* pSkinnedMesh = Animation_M->GetSkinnedMesh(szFolder, szFilename);
@@ -102,49 +102,34 @@ void cAnimation::Load(char* szDirectory, char* szFilename)
 void cAnimation::UpdateAndRender(D3DXMATRIXA16* tran)
 {
 	cGameObject::Update();
+
+	if (m_pRootFrame == NULL)
+		return;
+
+	if (m_isBlending)
+	{
+		m_fPassedBlendTime += g_pTimeManager->GetDeltaTime();
+
+		if (m_fPassedBlendTime >= m_fBlendTime)
+		{
+			m_isBlending = false;
+			m_pAnimController->SetTrackWeight(0, 1.0f);
+			m_pAnimController->SetTrackWeight(1, 0.0f);
+			m_pAnimController->SetTrackEnable(1, false);
+		}
+		else
+		{
+			float fWeight = m_fPassedBlendTime / m_fBlendTime;
+			m_pAnimController->SetTrackWeight(0, fWeight);
+			m_pAnimController->SetTrackWeight(1, 1.0f - fWeight);
+		}
+	}
 	if (m_pAnimController)
 	{
 		m_pAnimController->AdvanceTime(g_pTimeManager->GetDeltaTime(), NULL);
 	}
-
-	if (m_pRootFrame)
-	{
-
-		D3DXMATRIXA16  matR, matT, matWorld;
-
-		m_vDirection = m_vDirection * (-1.0);
-
-		D3DXMatrixLookAtLH(
-			&matR,
-			&D3DXVECTOR3(0, 0, 0),
-			&m_vDirection,
-			&D3DXVECTOR3(0, 1, 0));
-		D3DXMatrixTranspose(&matR, &matR);
-
-
-		D3DXMatrixTranslation(&matT,
-			m_vPosition.x,
-			m_vPosition.y,
-			m_vPosition.z);
-
-
-
-		matWorld = matR * matT;
-
-		Update(m_pRootFrame, tran);
-		Render(m_pRootFrame);
-		if (pBoundingSphereMesh)
-		{
-			D3DXMatrixTranslation(&matT,
-				m_stBoundingSphere.vCenter.x,
-				m_stBoundingSphere.vCenter.y,
-				m_stBoundingSphere.vCenter.z);
-			g_pD3DDevice->SetTransform(D3DTS_WORLD, tran);
-			g_pD3DDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
-			pBoundingSphereMesh->DrawSubset(0);
-			g_pD3DDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
-		}
-	}
+	Update(m_pRootFrame, tran);
+	Render(m_pRootFrame);
 }
 
 void cAnimation::Render(D3DXFRAME_DERIVED* pBone /*= NULL*/) {

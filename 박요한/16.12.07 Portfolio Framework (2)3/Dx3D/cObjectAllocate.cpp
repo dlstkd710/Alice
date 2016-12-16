@@ -91,9 +91,9 @@ STDMETHODIMP cObjectAllocate::CreateMeshContainer(
 	if (pSkinInfo)
 	{
 		DWORD dwNumBones = pSkinInfo->GetNumBones();
-		pBoneMesh->pBoneOffsetMatrices = new D3DXMATRIX[dwNumBones];
-		pBoneMesh->pCurrentBoneMatrices = new D3DXMATRIX[dwNumBones];
-		pBoneMesh->ppBoneMatrixPtrs = new D3DXMATRIX*[dwNumBones];
+		pBoneMesh->pBoneOffsetMatrices = new D3DXMATRIXA16[dwNumBones];
+		pBoneMesh->pCurrentBoneMatrices = new D3DXMATRIXA16[dwNumBones];
+		pBoneMesh->ppBoneMatrixPtrs = new D3DXMATRIXA16*[dwNumBones];
 
 		// step 4. 동적 할당된 pBoneOffsetMatrices 매트릭스에 값 저장.
 		// pSkinInfo->GetBoneOffsetMatrix(i)

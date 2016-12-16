@@ -1,31 +1,12 @@
 #pragma once
 
-class cMtlTex;
-
-struct ST_BONE : public D3DXFRAME
-{
-	D3DXMATRIX	CombinedTransformationMatrix;
-};
-
-struct ST_BONE_MESH : public D3DXMESHCONTAINER
-{
-	LPD3DXMESH				pOrigMesh;
-	LPD3DXMESH				pWorkMesh;
-	std::vector<cMtlTex*>	vecMtlTex;
-
-	// 이 메쉬에 영향을 주는 프레임'들'의 월드매트릭스 포인터 배열
-	D3DXMATRIX**			ppBoneMatrixPtrs;
-	// 원본 메쉬를 로컬스페이스로 보내는 매트릭스들.
-	D3DXMATRIX*				pBoneOffsetMatrices;
-	// 각 본의 계산된 월드매트릭스
-	D3DXMATRIX*				pCurrentBoneMatrices;
-};
 
 class cObjectAllocate : public ID3DXAllocateHierarchy
 {
 private:
 	SYNTHESIZE(std::string, m_sFolder, Folder);
-
+	SYNTHESIZE(D3DXVECTOR3, cMax, Max);
+	SYNTHESIZE(D3DXVECTOR3, cMin, Min);
 public:
 	cObjectAllocate(void);
 	~cObjectAllocate(void);
