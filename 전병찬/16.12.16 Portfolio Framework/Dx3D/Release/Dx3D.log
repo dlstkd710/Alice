@@ -1,0 +1,72 @@
+﻿  cAction.cpp
+  cAnimation.cpp
+cAnimation.cpp(75): error C2664: 'HRESULT D3DXLoadMeshHierarchyFromXW(LPCWSTR,DWORD,LPDIRECT3DDEVICE9,LPD3DXALLOCATEHIERARCHY,LPD3DXLOADUSERDATA,LPD3DXFRAME *,LPD3DXANIMATIONCONTROLLER *)': 인수 1을(를) 'const char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cAnimation.cpp(75): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+cAnimation.cpp(284): error C2664: 'HRESULT D3DXCreateEffectFromFileW(LPDIRECT3DDEVICE9,LPCWSTR,const D3DXMACRO *,LPD3DXINCLUDE,DWORD,LPD3DXEFFECTPOOL,LPD3DXEFFECT *,LPD3DXBUFFER *)': 인수 2을(를) 'char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cAnimation.cpp(284): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+cAnimation.cpp(378): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  cAnimation_M.cpp
+cAnimation_M.cpp(30): warning C4316: 'cAnimation': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+  cBoundingRect.cpp
+cBoundingRect.cpp(22): error C2664: 'int MessageBoxW(HWND,LPCWSTR,LPCWSTR,UINT)': 인수 3을(를) 'const char [8]'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cBoundingRect.cpp(22): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  cBoundingSphere.cpp
+  cFxLoader.cpp
+cFxLoader.cpp(41): error C2664: 'HRESULT D3DXCreateEffectFromFileW(LPDIRECT3DDEVICE9,LPCWSTR,const D3DXMACRO *,LPD3DXINCLUDE,DWORD,LPD3DXEFFECTPOOL,LPD3DXEFFECT *,LPD3DXBUFFER *)': 인수 2을(를) 'const char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cFxLoader.cpp(41): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  cGameObject.cpp
+  cMainGame.cpp
+cMainGame.cpp(45): warning C4316: 'cCamera': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+cMainGame.cpp(48): warning C4316: 'cCrtController': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+cMainGame.cpp(62): warning C4316: 'CharacterClass': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+cMainGame.cpp(77): warning C4316: 'cObjectXfile': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+  cMtMesh.cpp
+cMtMesh.cpp(68): error C2664: 'HRESULT D3DXLoadMeshHierarchyFromXW(LPCWSTR,DWORD,LPDIRECT3DDEVICE9,LPD3DXALLOCATEHIERARCHY,LPD3DXLOADUSERDATA,LPD3DXFRAME *,LPD3DXANIMATIONCONTROLLER *)': 인수 1을(를) 'const char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cMtMesh.cpp(68): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+cMtMesh.cpp(262): error C2664: 'HRESULT D3DXCreateEffectFromFileW(LPDIRECT3DDEVICE9,LPCWSTR,const D3DXMACRO *,LPD3DXINCLUDE,DWORD,LPD3DXEFFECTPOOL,LPD3DXEFFECT *,LPD3DXBUFFER *)': 인수 2을(를) 'char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cMtMesh.cpp(262): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  cMtMeshManager.cpp
+cMtMeshManager.cpp(29): warning C4316: 'cMtMesh': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+  cObjectXfile.cpp
+cObjectXfile.cpp(33): error C2664: 'HRESULT D3DXLoadMeshHierarchyFromXW(LPCWSTR,DWORD,LPDIRECT3DDEVICE9,LPD3DXALLOCATEHIERARCHY,LPD3DXLOADUSERDATA,LPD3DXFRAME *,LPD3DXANIMATIONCONTROLLER *)': 인수 1을(를) 'const char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cObjectXfile.cpp(33): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  cObjLoader.cpp
+  cSky.cpp
+cSky.cpp(18): error C2664: 'HRESULT D3DXCreateCubeTextureFromFileW(LPDIRECT3DDEVICE9,LPCWSTR,LPDIRECT3DCUBETEXTURE9 *)': 인수 2을(를) 'const char [34]'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cSky.cpp(18): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  cSound.cpp
+cSound.cpp(39): error C2664: 'HMMIO mmioOpenW(LPWSTR,LPMMIOINFO,DWORD)': 인수 1을(를) 'LPSTR'에서 'LPWSTR'(으)로 변환할 수 없습니다.
+  cSound.cpp(39): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  cSoundManager.cpp
+cSoundManager.cpp(86): warning C4244: '인수': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  cTerrain.cpp
+cTerrain.cpp(249): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+cTerrain.cpp(250): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  cText.cpp
+cText.cpp(36): error C2664: 'errno_t strcpy_s(char *,std::rsize_t,const char *)': 인수 1을(를) 'WCHAR [32]'에서 'char *'(으)로 변환할 수 없습니다.
+  cText.cpp(36): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+cText.cpp(45): error C2664: 'HRESULT D3DXCreateTextW(LPDIRECT3DDEVICE9,HDC,LPCWSTR,FLOAT,FLOAT,LPD3DXMESH *,LPD3DXBUFFER *,LPGLYPHMETRICSFLOAT)': 인수 3을(를) 'const char [6]'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cText.cpp(45): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+cText.cpp(98): error C2664: 'errno_t strcpy_s(char *,std::rsize_t,const char *)': 인수 1을(를) 'WCHAR [32]'에서 'char *'(으)로 변환할 수 없습니다.
+  cText.cpp(98): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+cText.cpp(135): error C2664: 'INT ID3DXFont::DrawTextW(LPD3DXSPRITE,LPCWSTR,INT,LPRECT,DWORD,D3DCOLOR)': 인수 2을(를) 'char [20]'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cText.cpp(135): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  cTextureManager.cpp
+cTextureManager.cpp(24): error C2664: 'HRESULT D3DXCreateTextureFromFileW(LPDIRECT3DDEVICE9,LPCWSTR,LPDIRECT3DTEXTURE9 *)': 인수 2을(를) 'const char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cTextureManager.cpp(24): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+cTextureManager.cpp(54): error C2664: 'HRESULT D3DXCreateTextureFromFileExW(LPDIRECT3DDEVICE9,LPCWSTR,UINT,UINT,UINT,DWORD,D3DFORMAT,D3DPOOL,DWORD,DWORD,D3DCOLOR,D3DXIMAGE_INFO *,PALETTEENTRY *,LPDIRECT3DTEXTURE9 *)': 인수 2을(를) 'const char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  cTextureManager.cpp(54): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  fontManager.cpp
+fontManager.cpp(31): error C2664: 'HRESULT D3DXCreateFontW(LPDIRECT3DDEVICE9,INT,UINT,UINT,UINT,BOOL,DWORD,DWORD,DWORD,DWORD,LPCWSTR,LPD3DXFONT *)': 인수 11을(를) 'const char [25]'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  fontManager.cpp(31): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+fontManager.cpp(65): error C2664: 'HRESULT D3DXCreateFontW(LPDIRECT3DDEVICE9,INT,UINT,UINT,UINT,BOOL,DWORD,DWORD,DWORD,DWORD,LPCWSTR,LPD3DXFONT *)': 인수 11을(를) 'const char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  fontManager.cpp(65): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+fontManager.cpp(82): error C2664: 'INT ID3DXFont::DrawTextW(LPD3DXSPRITE,LPCWSTR,INT,LPRECT,DWORD,D3DCOLOR)': 인수 2을(를) 'const char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  fontManager.cpp(82): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+fontManager.cpp(126): error C2664: 'INT ID3DXFont::DrawTextW(LPD3DXSPRITE,LPCWSTR,INT,LPRECT,DWORD,D3DCOLOR)': 인수 2을(를) 'const char *'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  fontManager.cpp(126): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+  logManager.cpp
+logManager.cpp(183): error C2374: '_lpszClassName': 재정의. 여러 번 초기화했습니다.
+  logManager.cpp(162): note: '_lpszClassName' 선언을 참조하십시오.
+logManager.cpp(199): error C2664: 'HWND CreateWindowExW(DWORD,LPCWSTR,LPCWSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)': 인수 3을(를) 'const char [1]'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  logManager.cpp(199): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
