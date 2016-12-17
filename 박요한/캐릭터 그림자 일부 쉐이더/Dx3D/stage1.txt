@@ -1,0 +1,12 @@
+BBBB
+BEEB
+BEDB
+BCEB
+BDCB
+BPEB
+BBBB
+B:못가는곳
+E:빈땅
+C:움직여야하는 큐브
+D:목적지
+P:플레이어시작위치
