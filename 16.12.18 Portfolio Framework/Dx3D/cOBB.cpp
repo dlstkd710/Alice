@@ -230,7 +230,7 @@ void cOBB::DebugRender(D3DCOLOR c)
 		D3DFMT_INDEX16,
 		&vecVertex[0],
 		sizeof(ST_PC_VERTEX));
-	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
+	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, false);
 }
 
 bool cOBB::IsCollision(cOBB* pOBB1, cOBB* pOBB2)

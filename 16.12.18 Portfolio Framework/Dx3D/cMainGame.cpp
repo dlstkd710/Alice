@@ -203,6 +203,6 @@ void cMainGame::SetLight()
 	stLight.Direction = D3DXVECTOR3(1, -1, 1);
 	g_pD3DDevice->SetLight(0, &stLight);
 	g_pD3DDevice->LightEnable(0, true);
-	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
+	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, false);
 	g_pD3DDevice->SetRenderState(D3DRS_NORMALIZENORMALS, true);
 }
