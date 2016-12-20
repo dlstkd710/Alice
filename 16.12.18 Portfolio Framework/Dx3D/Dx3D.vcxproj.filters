@@ -100,6 +100,15 @@
     <Filter Include="소스 파일\Character%28Alice%29\이펙트">
       <UniqueIdentifier>{94c61a54-3955-4c1a-9e50-fb8628fce82e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\JEONGJEHO\1. Sky">
+      <UniqueIdentifier>{bafe6dd3-7bc4-481f-8c84-250231018198}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\JEONGJEHO\2. Edge Detection">
+      <UniqueIdentifier>{8f4a9fa4-7eb1-4e0f-a2ed-b77f3b43c9d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\JEONGJEHO\3. Catmull-Rom">
+      <UniqueIdentifier>{f3e873b4-7cd1-4701-b3d5-8bc70f8acdd6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -246,9 +255,6 @@
     <ClInclude Include="cUIButton.h">
       <Filter>소스 파일\UI</Filter>
     </ClInclude>
-    <ClInclude Include="cSky.h">
-      <Filter>소스 파일\JEONGJEHO</Filter>
-    </ClInclude>
     <ClInclude Include="cFxLoader.h">
       <Filter>소스 파일\JEONGJEHO\0. FX Loader</Filter>
     </ClInclude>
@@ -317,6 +323,15 @@
     </ClInclude>
     <ClInclude Include="EffectClass.h">
       <Filter>소스 파일\Character%28Alice%29\이펙트</Filter>
+    </ClInclude>
+    <ClInclude Include="cSky.h">
+      <Filter>소스 파일\JEONGJEHO\1. Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="cEdgeDetection.h">
+      <Filter>소스 파일\JEONGJEHO\2. Edge Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="cCatmullRom.h">
+      <Filter>소스 파일\JEONGJEHO\3. Catmull-Rom</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -431,9 +446,6 @@
     <ClCompile Include="cUIButton.cpp">
       <Filter>소스 파일\UI</Filter>
     </ClCompile>
-    <ClCompile Include="cSky.cpp">
-      <Filter>소스 파일\JEONGJEHO</Filter>
-    </ClCompile>
     <ClCompile Include="cFxLoader.cpp">
       <Filter>소스 파일\JEONGJEHO\0. FX Loader</Filter>
     </ClCompile>
@@ -505,6 +517,15 @@
     </ClCompile>
     <ClCompile Include="EffectClass.cpp">
       <Filter>소스 파일\Character%28Alice%29\이펙트</Filter>
+    </ClCompile>
+    <ClCompile Include="cSky.cpp">
+      <Filter>소스 파일\JEONGJEHO\1. Sky</Filter>
+    </ClCompile>
+    <ClCompile Include="cEdgeDetection.cpp">
+      <Filter>소스 파일\JEONGJEHO\2. Edge Detection</Filter>
+    </ClCompile>
+    <ClCompile Include="cCatmullRom.cpp">
+      <Filter>소스 파일\JEONGJEHO\3. Catmull-Rom</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

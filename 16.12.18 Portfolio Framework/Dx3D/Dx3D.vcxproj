@@ -101,9 +101,11 @@
     <ClInclude Include="cBoundingRect.h" />
     <ClInclude Include="cBoundingSphere.h" />
     <ClInclude Include="cCamera.h" />
+    <ClInclude Include="cCatmullRom.h" />
     <ClInclude Include="cCrtController.h" />
     <ClInclude Include="cCube.h" />
     <ClInclude Include="cDeviceManager.h" />
+    <ClInclude Include="cEdgeDetection.h" />
     <ClInclude Include="cFrustum.h" />
     <ClInclude Include="cFxLoader.h" />
     <ClInclude Include="cGameObject.h" />
@@ -167,9 +169,11 @@
     <ClCompile Include="cBoundingRect.cpp" />
     <ClCompile Include="cBoundingSphere.cpp" />
     <ClCompile Include="cCamera.cpp" />
+    <ClCompile Include="cCatmullRom.cpp" />
     <ClCompile Include="cCrtController.cpp" />
     <ClCompile Include="cCube.cpp" />
     <ClCompile Include="cDeviceManager.cpp" />
+    <ClCompile Include="cEdgeDetection.cpp" />
     <ClCompile Include="cFrustum.cpp" />
     <ClCompile Include="cFxLoader.cpp" />
     <ClCompile Include="cGameObject.cpp" />
